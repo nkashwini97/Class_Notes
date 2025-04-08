@@ -195,3 +195,406 @@ Working with Linux Package Management :::
 
 	-	Lab ::: AWS Cloud Platform
 				Create Virtual Machines (Ubuntu - previous version)
+
+
+
+######################
+Day 2 : 8th Apr. 2025
+######################
+
+
+
+	Login to AWS Console 
+	
+	Create AWS EC2 Instances (Ubuntu)
+		- AMI: Ubuntu 22.04v
+		
+		- t2.mirco
+		
+		- keypair
+		
+		
+	Connect to EC2 Instance using MobaXterm 
+	
+		Secure SHell (SSH) Connection ?
+		
+			Parameters required to enable secuire connect :
+			
+				- Host Name (External_IP Address)
+				- User Name 
+				- User Credentials : (Based on Authentication Type)
+					- Password based Authentication
+					- Key based Authentication
+						- Public Key(authorized_keys)
+						- Private Key 
+					- Token based Authentication
+					- Passwordless Authentication
+					
+					
+					
+		Connect to Ubuntu Machine :
+		
+			- User_Name : ubuntu 
+			- Host_Name : Public_IP
+			- key-pair	: *.pem(private_Key) (Using AWS Console Create one)
+							Can be created using SSHKEYGEN Command.**********
+							
+	- Package Management :::
+
+		- Package Managers are used to install/Uninstall/Upgrade the Packages/software 
+	
+		
+		- apt/apt-get package manager.
+		
+			- Package Managers can be executed only by the root user on Linux
+			
+				- TO work with Package Manager :
+					- Elevate the Access to Root Level 
+						- sudo -i			# This Command is used to elevate the access to root level
+		
+		sudo -i
+		
+		apt install git 			# https://git-scm.com/downloads
+		
+			git --version 	
+		
+			git version 2.43.0
+		
+		apt update 		# To update the default packages and patches
+
+			Install Pre-requisites		
+
+			Install Actual Tool			
+
+			Post Installation Actions
+		
+			
+				- Stand-alone Tool			Eg.: git
+				
+				- Service					Eg.: tomcat/nginx/jenkins/docker 
+				
+				tomcat 	: 8080
+				jenkins : 8080 
+				
+				apt install nginx -y
+				
+				systemctl status nginx
+
+				
+				nginx is a web application service 
+				nginx runs in port 80
+				
+				Open Web Browser and enter :
+				
+				<public_ip_address>:80
+				
+				Eg.: 
+				
+					http://13.203.195.149:80
+				
+
+	- File Management:
+	
+		create/write/update/delete/rename/copy/move........
+		
+		Folders :
+		
+			- Collection of files and sub-folders
+			
+			- In Linux, folders are referred as Directories.
+	
+			- Create a Directory(Folder)
+				- Is a collection of files and directories
+				
+			- Create a File 
+			
+			- Edit the files 
+				- Using File Editors - (vi editor / nano editor)
+			
+			- Delete the files
+
+			- Delete the Directories 
+			
+			- Copy the files/Directories 
+			
+			- Move the Files/Directories 
+			
+			- Rename the Files/Directories 
+			
+			Create File Access Control
+			
+		- File Management 	
+
+
+
+	Root Directory
+	
+	User/Home Directory 
+	
+	Organization of Linux Directories :::
+	
+		System Root Directory			cd /			
+		
+		User/Home Directory 			cd ~		
+		
+		
+			- pwd 		 # Present Work Directory
+
+			- sudo -i 
+			
+			- exit 				# Logout from current linux user 
+
+			- ls 				# Is to List the files and Directories 
+			
+			- ll 				# Long Listing - to get the full property of the directory
+			
+			- ls -a				# List All(List all the files, including hidden files and directories)
+			
+			- cd				# Change Directory
+			
+				- cd <dir_name> 	# Change to a specific directory				
+				
+				- cd /				# This command will take to the root directory			
+			
+				- cd ~				# This command will take to the home directory(Default Directory) of the specific linux user
+									Eg.: 	ubuntu 	===> /home/ubuntu 
+		
+									root	===> /root				
+
+		
+			- clear 				# Clear the Screen
+				
+			- mkdir <dir_name>	# used to Create Directory 
+			
+			- cd <dir_name>		# Change the directory
+			
+			- cd ..				# Take the control back to previous directory		
+			
+			Create Files :
+				
+					- touch <file_name>		# used to create an empty file 
+					
+					- echo "Record1" >> <file_name>		# To create a file with a record
+					
+					- echo "rec1" >> file1.txt	
+							# Used to add more record to the specific file 
+							
+					- echo "rec1" > file1.txt	
+							# Used to replace the file content with the new record 
+							
+					- vi <file_name>		# Used to Create / edit a file using vi editor
+
+				Eg.: 
+					
+						vi file1.txt 
+						
+							press i 		# goto insert mode 
+							
+							#type some contents
+							#type some contents				
+							
+							press esc :wq	# Save and Exit from a file 
+	
+							press esc :q!	# Exit from a file without saving it. 
+	
+			Read the file content :
+				
+					cat <file_name>			# Read the Content of a file
+	
+			Copy files from one directory to another :::
+			
+						cp <source_file> <Target_Dir>	# Used to copy a file to target folder 
+						
+						mv <source_file> <Target_Dir>	# Used to move a file to target folder 
+			
+						mv file1 file-new-name			# To Rename a file
+						
+			Rename File or Directory :::
+					
+						mv file1 file-new-name
+						
+						mv dir1 new-dir-name
+						
+			Delete a file or Directory :::
+					
+						rm <file_Name>			# Remove File  
+						
+						rm file1.txt 
+						
+						rm *.txt
+						
+						rm *.*
+						
+						rm -r <dir_Name>		# Remove Directory
+						
+						rm -rf <dir_name>		# Forceful Deletion of Directory
+						
+			File Access ::::
+			
+				Who can Access the file ?
+				
+					- By Default Owner will have complete access. 
+
+root@ip-172-31-0-105://# history
+    1  pwd
+    2  exit
+    3  pwd
+    4  cd /
+    5  pwd
+    6  cd ~
+    7  pwd
+    8  exit
+    9  pwd
+   10  cd /home/ubuntu/
+   11  ld
+   12  ls
+   13  cd dir1/
+   14  ls
+   15  cd //
+   16  clear
+   17  history
+root@ip-172-31-0-105://# exit
+logout
+ubuntu@ip-172-31-0-105:/$ history
+    1  clear
+    2  pwd
+    3  sudo -i
+    4  pwd
+    5  ls
+    6  ls -a
+    7  sudo -i
+    8  cd /
+    9  pwd
+   10  ls
+   11  cd ~
+   12  pwd
+   13  ls
+   14  clear
+   15  cd /
+   16  cd ~
+   17  clear
+   18  ls
+   19  mkdir dir1
+   20  ls
+   21  mkdir dir2
+   22  ls
+   23  pwd
+   24  cd  dir1
+   25  pwd
+   26  cd ..
+   27  pwd
+   28  ls
+   29  cd dir1
+   30  ls
+   31  pwd
+   32  touch file1.txt
+   33  ls
+   34  cat file1.txt
+   35  echo "Hello"
+   36  ehco "hi"
+   37  echo "hi"
+   38  clear
+   39  ls
+   40  echo "rec1" >> fil22.txt
+   41  ls
+   42  cat fil22.txt
+   43  echo "rec1"
+   44  cat fil22.txt
+   45  echo "rec2" >> fil22.txt
+   46  cat fil22.txt
+   47  echo "rec3" >> fil22.txt
+   48  echo "rec4" >> fil22.txt
+   49  echo "rec5" >> fil22.txt
+   50  cat fil22.txt
+   51  echo "rec6" >> fil22.txt
+   52  cat fil22.txt
+   53  echo "rec7" >> fil22.txt
+   54  echo "record1" > fil22.txt
+   55  cat fil22.txt
+   56  clear
+   57  ls
+   58  vi file3.txt
+   59  cat file3.txt
+   60  vi file4.txt
+   61  cat file4.txt
+   62  vi file4.txt
+   63  cat file4.txt
+   64  ls
+   65  vi fil22.txt
+   66  ls
+   67  clear
+   68  ls
+   69  cd ..
+   70  ls
+   71  cd dir2/
+   72  pwd
+   73  ls
+   74  cd ..
+   75  ls
+   76  cd dir1/
+   77  ls
+   78  pwd
+   79  cp fil22.txt /home/ubuntu/dir2
+   80  cd ..
+   81  cd dir2/
+   82  ls
+   83  cd ..
+   84  cd dir1/
+   85  ls
+   86  mv file4.txt /home/ubuntu/dir2
+   87  ls
+   88  cd ..
+   89  cd dir2/
+   90  ls
+   91  clear
+   92  ls
+   93  cd ..
+   94  cd dir1/
+   95  ls
+   96  cp file1.txt /home/ubuntu/dir2
+   97  ls
+   98  cd ..
+   99  cd dir2/
+  100  ls
+  101  mv fil22.txt file2.txt
+  102  ls
+  103  pwd
+  104  ls
+  105  rm file1.txt
+  106  ls
+  107  touch s1.java
+  108  touch e1.md
+  109  touch e1.txt
+  110  touch e3.doc
+  111  clear
+  112  ls
+  113  rm *.txt
+  114  ls
+  115  cd ..
+  116  ls
+  117  rm -r dir2/
+  118  ls
+  119  cd dir1/
+  120  ls
+  121  mkdir sdir1
+  122  mkdir sdir2
+  123  ls
+  124  touch sdir1
+  125  ls
+  126  touch s1
+  127  ls
+  128  clear
+  129  ls
+  130  mkdir s2
+  131  ls
+  132  clear
+  133  touch sdir3
+  134  ls
+  135  clear
+  136  ls
+  137  ll
+  138  cd /
+  139  ls
+  140  cd root
+  141  sudo -i
+  142  history
