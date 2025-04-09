@@ -598,3 +598,249 @@ ubuntu@ip-172-31-0-105:/$ history
   140  cd root
   141  sudo -i
   142  history
+
+			
+######################
+Day 3 : 9th Apr. 2025
+######################					
+
+
+	- Package Management 
+	- File Management 
+	- User Management 
+	- Access Management 
+	- Remote Servers Management 
+	- Process Automation(Shell Scripting)
+				
+	
+	- Access Management
+	
+	Access Management :::
+	
+		
+		File :
+		
+			script 
+			program 
+			artifacts 
+			
+			
+			>> ll 						# Long Listing 
+			
+			
+		users : developer1,2,3,4,5 
+		users : tester1,2,3,4,5
+		
+		user group : developers_grp1
+		
+		
+		developer1 -- created a file 
+		
+		Level of Access to a file :
+		
+		User/Owner 	:  developer1
+		
+		User Group	:	developers_grp1
+		
+		Public User	:
+		
+		What level of Access :	
+		
+		Owner 	: Read / Write / Execute 
+		
+		Group 	: Read & Execute 
+		
+		Public 	: Execute 
+		
+		*.script1 
+		
+		drwxrwxr-x 2 ubuntu ubuntu 4096 Apr  8 16:42 sdir2/
+		-rw-rw-r-- 1 ubuntu ubuntu    0 Apr  8 16:45 sdir3
+		
+			
+		drwxrwxr-x	
+
+		----------
+		
+		-									# Denote dir or file (Possible value:  d or - )
+												'd'  Denotes Directory
+												'-'  Denotes File 
+												
+												
+		 ---								# Denote the Owner Level Access 
+												Possible Values: r / w /x 
+												r - Read only Access 
+												w - Write Access 
+												x - Execute Access 
+		
+			---								# Denote the Group Level Access
+												Possible Values: r / w /x 
+												r - Read only Access 
+												w - Write Access 
+												x - Execute Access
+
+			   ---							# Denote the Public User Level Access
+												Possible Values: r / w /x 
+												r - Read only Access 
+												w - Write Access 
+												x - Execute Access	
+
+
+		https://chmod-calculator.com/
+		
+		chmod <Access_Level> <File/Directory_Name>
+		
+		chmod 600 dir1/*
+		
+		chmod 777 sdir3
+		
+		Access Mode :::
+			r - Read only Access 
+			w - Write Access 
+			x - Execute Access	
+	
+	
+	- User Management :
+	
+		- User Authentication
+				Who can access the System
+		- User Authorization 
+				What can be done on that system
+				
+	User Management ::::::
+	
+		Create Linux Users :::
+		
+			ubuntu user 
+			
+			root user 
+			
+			devopsadmin
+			
+		
+		Linux Machine uses SSH(Secure SHell) Connection
+			--> Host_Name,User_Name,Credentials
+		
+		How to Create Linux User?
+			- devopsadmin 
+
+		User Authentication?
+			SSH Authentication Methods :
+			
+				- Password Based Authentication
+				- Token Based Authentication
+				- Key Based Authentication
+					- Public Key/Private Key 
+				- Passwordless 
+			
+		
+		User Authorization?
+			--> Ownership 
+			
+			groupadd <group_name>
+			
+		Create Linux User with SSH Keys :::
+		
+			sudo -i
+		
+			useradd devopsadmin -s /bin/bash -m -d /home/devopsadmin
+
+			su - devopsadmin
+
+			ssh-keygen -t ecdsa -b 521										#ubuntu 22.04 or higher version of ubuntu				
+
+			cd .ssh
+			
+			ls ~/.ssh 
+
+			#You should see following two files:
+
+			#id_ecdsa - private key
+			#id_ecdsa.pub - public
+			
+			
+			cat id_ecdsa.pub > authorized_keys			# authorized_keys this file name should be same.
+			
+			authorized_keys :::
+				It is the copy of Public Key.
+				
+				Always the private key will be compared with the authorized_keys
+				
+			chmod 600 /home/devopsadmin/.ssh/*					# Used to Change the Access Mode of Files or Directories
+			
+			
+			
+			
+			chown -R devopsadmin:devopsadmin /opt/tomcat/		# Used to Change the Ownership of Files or Directories
+			
+			
+		Get the List of Linux Users ::::
+			cat /etc/passwd
+		
+		Get the list of Linux User Groups :::: 
+			cat /etc/group
+	
+	
+		Create Password to any Linux User:
+		
+			As a root user ::
+			
+				passwd <user_name>
+				
+			root@ip-172-31-0-105:~# passwd devopsadmin
+			New password:
+			Retype new password:
+			passwd: password updated successfully
+			root@ip-172-31-0-105:~#
+			
+			
+		Add user to a group ::
+
+		
+			- usermod -aG ubuntu devopsadmin
+			
+				
+		Change the Ownership of the directory:
+		
+			chown -R devopsadmin:devopsadmin /home/ubuntu/dir1
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+		root@ip-172-31-46-175:~# passwd devopsadmin
+		New password:
+		Retype new password:
+		passwd: password updated successfully
+		
+				passwd -d <user_name>		# Delete Linux User Password
+
+
+   33  su - devopsadmin
+   34  exit
+   35  su - devopsadmin
+   36  exit
+   37  usermod -aG ubuntu devopsadmin
+   38  su - devopsadmin
+   39  cat /etc/group
+   40  clear
+   41  exit
+   42  chown -R devopsadmin:devopsadmin /home/ubuntu/dir1
+   43  exit
+   44  su - devopsadmin
+   45  exit
+   46  clear
+   47  history
