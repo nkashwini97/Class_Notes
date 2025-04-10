@@ -844,3 +844,160 @@ Day 3 : 9th Apr. 2025
    45  exit
    46  clear
    47  history
+
+
+				
+######################
+Day 4 : 10th Apr. 2025
+######################					
+				
+				
+	- Package Management 
+	- File Management 
+	- User Management 
+	- Access Management 
+	- Remote Servers Management 
+	- Process Automation(Shell Scripting)			
+				
+				
+				
+
+	- Remote Servers Management :
+	
+		IT Infra-Structure Management Team :
+	
+	
+		AWS Cloud :
+		
+			VM1	(Server)
+			
+			VM2 (Client)
+					
+		1. Establish Connection to Remote Server  
+		2. Login to the Remote Server 
+		3. Copy the Files from one server to another server
+			using SCP
+		4. Manage the Remote Server - Install any package/Uninstall/Upgrade 
+		
+		
+		Pre-requisites for Remote Server :::
+		
+			- Launch 2 VMs (VM1-Source & VM2-Target) - Ubuntu v22.04
+			
+			- Ensure that Port 22 is enabled 
+			
+			- Create User in both the VMs 
+
+
+			sudo -i
+		
+			useradd devopsuser1 -s /bin/bash -m -d /home/devopsuser1
+
+			su - devopsuser1
+
+
+			
+			- Create SSH-Key in one server(VM1)
+			
+			- Use the public_Key as a authorized_keys in the Client Machine(VM2)
+			
+			- Establish SSH Connection & Login to VM2(Client_Machine)
+			
+			- Copy Files from VM1 to VM2(Client_Machine)
+	
+	
+useradd devopsuser1 -s /bin/bash -m -d /home/devopsuser1
+
+su - devopsuser1	
+
+mkdir .ssh 
+
+cd .ssh 
+
+vi authorized_keys
+
+#paste the id_ecdsa.pub of devopsadmin user from Server machine to authorized_keys file in Client Machine 
+
+chmod 600 /home/devopsuser1/.ssh/*		
+				
+	ssh devopsuser1@172.31.5.194 ==> Private IP-Address
+				
+				
+				
+			
+	- Copy Files from VM1 to VM2(Client_Machine)	
+
+
+		Server Machine ::::		
+			/home/devopsadmin/sam.md 
+			
+		Client Machine ::::
+			/home/devopsuser1/sam.md 
+	
+		#cp  /home/devopsadmin/sourcefile.txt home/devopsuser1/dir1/
+		
+		scp /home/devopsadmin/sourcefile.txt devopsuser1@172.31.5.194:/home/devopsuser1
+				
+	
+
+	-	Process Automation Using shell Scripting!	
+	
+		- Shell Scripts?
+			- collection of Linux shell Commands
+			- Series of Commands/Task can be executed as a script.
+			
+	Fundamentals of Shell Scripting!
+	
+	Scripting Languages ?
+		- Are used to perform some process automation/validations
+		- Light-weight 
+		- Eg.: java scripts / shell scripts / yaml script / groovy / python 
+			(vs)
+	Progamming Language ?
+		- Are used to create some business applications 
+		- Huge Collection of Programming components
+		- Eg.: Java/.Net Framework/Python/Ruby/Cobol/C
+		
+	
+	Shell Scripting Language :
+	
+		- Shell Scripting is a collection shell commands 
+		- Shell Script file should be saved as *.sh (Extention should be .sh)
+		
+	Install git ?
+	
+		Install all these packages in 200 VMs :::
+	
+		apt install openjdk11 -y
+		apt install git -y 
+		apt install maven -y 
+		apt install docker.io -y
+		apt install ansible -y 
+		
+		Shell Script :
+		
+vi installbuildtools.sh 
+
+#!/bin/bash
+sudo apt install git -y 
+
+sudo apt install openjdk11 -y
+sudo apt install maven -y 
+sudo apt install docker.io -y
+#sudo apt install ansible -y 
+
+save the script as installbuildtools.sh 
+
+/home/devopsadmin/scripts/$ ls 
+installbuildtools.sh	
+
+/home/devopsadmin/scripts/$ ./installbuildtools.sh		# Run the Shell Script!
+			
+
+
+How to Write the Shell or any Scripts ????		
+				
+	shell/groovy/yaml,
+	python 
+	How to Learn :::
+
