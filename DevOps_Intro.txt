@@ -1,0 +1,339 @@
+######################
+Day 6 : 15th Apr. 2025
+######################	
+
+
+DevOps Overview
+
+
+• Evolution of Waterfall, Agile, and DevOps
+• What is DevOps
+• Why DevOps
+• Benefits of DevOps
+• DevOps Stages
+• DevOps Lifecycle
+• Various Automation in DevOps
+• Overview of CICD
+
+
+DevOps :::
+
+	What is DevOps?
+	
+	
+	IT Services : 
+	
+	Software :
+	
+	Types of Software Applications :
+	
+		- Destops Applications
+		- Web Applications 
+		- Mobile Applications
+		- Embedded Applications 
+	
+	SDLC - Software Development Life Cycle :::
+	
+	
+	- Requirement Analysis
+	- Design and Documentation 
+	- Code/Development 
+	- Testing 
+	- Implement to Production
+	- Maintain/Monitor 
+	
+	
+		Destops Application : 
+
+			Retail Business - SuperMarket Billing System 
+			
+					Functions/Modules :
+						- Products Inventory
+						- Billing Dashboard 
+						- Invoice Templates 
+						- Payment - CASH/Card Payment
+						
+								  -	OnlinePayment/UPI
+				
+			
+				
+		
+	Waterfall Model :
+	
+		- Linear in fashion, it strictly follows the top-down approach.
+		- It was implement for Monolith Application Architecture.
+	
+		Initial Project :
+		- Requirement Analysis				12 Months
+		- Design and Documentation
+		- Code/Development					5th Month of the Project
+		- Testing 
+		- Implement to Production
+		- Maintain/Monitor 
+		
+		Enhancement Project - -	OnlinePayment/UPI
+		
+		- Requirement Analysis				
+		- Design and Documentation
+		- Code/Development					
+		- Testing 
+		- Implement to Production
+		- Maintain/Monitor 
+		
+		
+	AGILE Methodologies :
+
+					Iterations :
+						- Products Inventory
+						- Billing Dashboard 
+						- Invoice Templates 
+						- Payment - CASH/Card Payment
+						
+								  -	OnlinePayment/UPI	
+	
+		Iteration 1 : Products Inventory
+		
+		- Requirement Analysis				
+		- Design and Documentation
+		- Code/Development					
+		- Testing 
+		- Implement to Production with proper approvals 
+	
+		Iteration 2 : Billing Dashboard 
+		
+		- Requirement Analysis				
+		- Design and Documentation
+		- Code/Development					
+		- Testing 
+		- Implement to Production with proper approvals 	
+	
+		nth Iteration : OnlinePayment/UPI
+		
+		- Requirement Analysis				
+		- Design and Documentation
+		- Code/Development					
+		- Testing 
+		- Implement to Production with proper approvals 	
+		
+		
+		Using Agile Methodologies :
+		
+			- We can able to achieve :
+			
+				- Continuous Development
+				- Continuous Integration 
+				- Continuous Testing 
+				- Continuous Delivery 
+					- Continuous Delivery expect manual approvals for producion release
+				
+			- We cannot achieve Continuous Deployments.
+					- Continuous Deployment - Never expect manual approvals for producion release
+		
+		
+	DevOps :::
+
+		- Requirement Analysis				
+		- Design and Documentation
+		- Code/Development					
+		- Testing 
+		- Implement to Production
+		- Maintain/Monitor 
+		
+		- DevOps is Software Development Strategy, helps to promote collaboration between the teams like Development Team and Operation Teams to achieve Continuous Development, Continuous Integration, Continuous Testing, Continuous Delivery, Continuous Deployment and Continuous Monitoring in more automated fashion.
+		
+	
+	How to implement DevOps ?
+	
+	
+	- Teams involved in the SDLC Process :
+	
+		DevOps Team :
+
+			- Infra-Structure Management Team 
+			- Application Development Team 
+			- Testing Team 
+			- Release Management Team 
+			- Production Monitoring Team 
+			- Production Support Team 
+			- IT Security Team 
+			
+	- Environments :
+	
+		Non-Prod Environments												Prod Environments
+		
+			Dev Environment
+			
+			Build Environment
+			
+			Test Environments 
+				- QA 
+				
+				- UAT 					===========================>			Production Servers 
+			
+			
+	- Application Architecture :
+	
+		- Monolith Application Architecture
+		
+			- It is tightly coupled Application Architecture
+			- All the Components/Functions/Modules are created and deployed as a whole application.
+			- Expect the downtime during Production Implementation.
+			- Here we can achieve only Continuous Delivery
+			
+		
+		- Micro-Service Based Application Architecture
+		
+			- It is loose coupled Application Architecture
+			- The Entire Application is divided into various Micro-Services 
+			- These Micro-Services can be independently developed,tested and implemented to producion.
+			- Here we can achieve Continuous Deployment
+			
+	
+		
+	- DevOps Stages :
+	
+		- Continuous Development ::
+		
+			- It is the capability of the Development Team to Continuously Develop the Source Code for futher integrations.
+			- It aims to improve the Developers productivity.
+			
+				Role of Application Developers?
+				
+					- Create Source Code
+					
+					Developers :
+					
+					- Create Source Code (Java/C#.Net/Python)
+					- Manually Build the Source Code - Compile the Source Code and Create Artifacts(Binaries - *.war/*.jar/*.dll/*.exec)
+					- Unit Testing 
+					- Promote the Changes to Test Environment
+					- Notify the Testing Team thru Emails.
+					
+					Using DevOps Approach :
+					
+					We Expect the Developers :
+					
+						- To Create Source Code 
+						- Save the Source Code in the Source Repository(like github)
+						
+						Using DevOps Automation :
+							- Automate the Application Build - Compile the Source Code and Create Artifacts(Binaries - *.war/*.jar/*.dll/*.exec)
+							- Automate Unit Testing 
+							- Automate - Promote the Changes to Test Environment
+							- Automate - Notify the Testing Team thru Emails.		
+
+				Tools :
+				
+					- IDE - Integrated Development Environment - Eclipse,Visual Studio Visual Studio Code,Pycharm
+					- Git/GitHub 
+			
+		
+		- Continuous Integration ::
+		
+			- It is the capability of the Development Team to Continuously Integrate their changes to further testing without impacting others.
+			
+				Using DevOps Automation :
+					- Automate the Application Build - Compile the Source Code and Create Artifacts(Binaries - *.war/*.jar/*.dll/*.exec)
+					- Automate Unit Testing 
+					- Automate - Promote the Changes to Test Environment
+					- Automate - Notify the Testing Team thru Emails.	
+
+				Tools : 
+
+					- IDE - Integrated Development Environment - Eclipse,Visual Studio Visual Studio Code,Pycharm
+					- Git/GitHub 
+					- Build Tools - Maven/ Gradle 
+					- Junit / TestNG
+					- Jenkins, Ansible, Docker, Kubernetes
+		
+		- Continuous Testing ::
+		
+			- It is the capability of the Testing Team to Continuously Test the changes without impacting other changes.
+			- Enable Automated Testing 
+			
+				Tools :
+				
+					- JUnit / TestNG / Selenium 
+					- Jenkins 		
+		
+		- Continuous Delivery / Deployment ::
+		
+				- Both Continuous Delivery and Continuous Deployment are used to perform Production Release.
+				
+				- Continuous Delivery 
+					- Continuous Delivery expect manual approvals for producion release
+					- Expect the Application Downtime during Production Implementation
+
+					Eg.: 
+					
+						- Online Banking :
+						
+						Create a Production Release Window : V1.0 LIVE 
+															 V2.0 to be deployment	
+						
+							- 4Hrs - 6Hrs -> Non-Business Hours 
+							- First try to fix the issue within the given time
+							- or Revert the changes
+							
+				- Continuous Deployments
+					- Continuous Deployment - Never expect manual approvals for producion release	
+					- Without any Downtime we can perform Production Implementations.
+					- Continuous Deployment can be achieved only if it is Micro-Service Based Application Architecture
+					
+					Eg.:
+					
+						- Netflix/Facebook/Amazon ==> 
+						
+						
+				Tools : 
+					
+						Jenkins/Docker/Kubernetes/Ansible/Terraform
+
+		
+		- Continuous Monitoring ::
+			
+			- To ensure High Availabililty of Applications and services.
+			
+		
+			- Infra-Structure Monitoring 
+				
+				- Monitoring the Infra-Structure - Servers/Associated Resources.
+				
+					- CPU / Memory Utilization - 
+					
+					- Monitoring Tools :
+					
+						- Prometheus/Grafana/Dynatrace/Nagios/Splunk
+						
+			
+			- Application Monitoring :
+			
+						- AppDynamics / DataDog 
+						
+						
+	
+		- Infra-Structure Management using IAC :
+		
+		
+			- IAC - Infra-Structure As Code :
+			
+			- Create and Configure Infra-Structure using Declarative Scripts 
+			
+			- Infra-Structure Provisioning/Creation 
+			
+				- Tools : Terraform/CloudFormation/ARM 
+			
+			- Infra-Structure Configuration 
+	
+				- Tools : Ansible/Chef/Puppet
+		
+		
+		
+
+Next :
+
+		DevOps Tools :
+		
+		DevOps LifeCycle :
+		
+		Scope of DeVOps :
