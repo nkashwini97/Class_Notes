@@ -337,3 +337,135 @@ Next :
 		DevOps LifeCycle :
 		
 		Scope of DeVOps :
+
+
+		
+	
+	
+######################
+Day 7 : 16th Apr. 2025
+######################	
+
+	DevOps Tools :
+	
+	DevOps LifeCycle :
+	
+	Scope of DevOps :				
+			
+		
+	DevOps Tools :		
+	
+		- Open-Source DevOps Tools :
+		
+			- git/jenkins/docker/kubernetes/ansible/terraform/prometheus/grafana
+		
+		- Managed Services :
+		
+			AWS 	: AWS Code Commit,Code Build,Code Deploy,Code Pipeline,Code Artifacts
+			Azure	: Azure DevOps Services - AzBoards,AzRepo,AzPipelines,AzTest Plan,AzArtifacts
+			GCP 	: DevOps Services
+			
+			
+	DevOps Lifecycle :
+	
+			Developer Create Source Code 
+						|
+						|
+			Commit the Code to Source Code Repository (Github/Az-Repo)
+						|
+						|
+			Automated Build 
+						|
+						|
+			Automated Code Promotion to Test Environment
+						|
+						|
+			Automated Testing 
+						|
+						|
+			Automated Code Promotion to Production Environments
+						|
+						|
+			Production Testing 
+						|
+						|
+			Continuous Monitoring 
+						|
+						|
+			Feedback from Customers/Business Users
+		
+	
+	
+	Scope of DevOps :
+
+		Waterfall-AGILE-DevOps-DevSecOps-GitOps-AIOps-MLOps-SRE,..............
+
+	DevOps :
+	
+		DevOps is all about :
+		
+			- People 
+			
+			- Process 
+			
+			- Tools 
+
+
+DevOps on Cloud :
+
+	- Cloud DevOps Services :
+	
+			AWS 	: AWS Code Commit,Code Build,Code Deploy,Code Pipeline,Code Artifacts
+			Azure	: Azure DevOps Services - AzBoards,AzRepo,AzPipelines,AzTest Plan,AzArtifacts
+	
+	• Overview of AWS DevOps and Azure DevOps
+	• Code Build
+	• Code Commit
+	• Code Deploy
+	• Code Pipeline
+	• Overview of Cloud Formation
+
+			
+		- Open-Source DevOps Tools :
+		
+			- git/GitHub/jenkins/docker/kubernetes/ansible/terraform/prometheus/grafana	
+	
+	
+		Open-Source 		AWS DevOps Services
+
+		- GitHub 		== 	Code Commit 
+		
+		- Jenkins 		== 	Code Build - Code Deploy - Code Pipeline (Code Build - Code Deploy)
+		
+		- Docker 		==  ECS
+		
+		- Kubernetes	== 	EKS 
+		
+		- DockerHub 	== 	ECR
+		
+		- Terraform		== 	CloudFormation(AWS Resources)
+		
+		- Ansible		== 	CloudFormation(AWS Resources)
+		
+		
+	
+		Automate Infra-Structure Provisioning and Configurations :
+			
+			- AWS Provided IAC Tool - Service ==> CloudFormation
+			
+			- CloudFormation is meant only for AWS Services 
+			
+			- Terraform can be used to provision the resouce in any Cloud Platform/Multi-Cloud Platform/Hybrid Environments.			
+		
+		- Infra-Structure Provisioning/Creation 
+		
+			- Tools : Terraform/CloudFormation/ARM 
+		
+		- Infra-Structure Configuration 
+
+			- Tools : Ansible/Chef/Puppet
+			
+
+
+			
+	
