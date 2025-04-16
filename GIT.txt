@@ -1,7 +1,7 @@
 
 
 ######################
-Day 8 : 16th Apr. 2025
+Day 7 : 16th Apr. 2025
 ######################	
 
 	Version Control System using GIT & GitHub ::::
