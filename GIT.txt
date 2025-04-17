@@ -144,4 +144,116 @@ Day 7 : 16th Apr. 2025
 		- Install Visual Studion Code.
 		
 		
+######################
+Day 8 : 17th Apr. 2025
+######################			
+
+	Version Control System using GIT :::
+	
+	Working with Git :::
+	
+	
+	
+	
+	Developers' Workload ???
+	
+	- Enhancement Projects / Bug fixing 			# Existing Project - Source Code is already available in the Remote Repository
+	
+	- New Project 
+	
+	
+	
+	Repository ==> Collection of Files and Folder - version controlled in local/remote environments
+	
+	Git file Workflow :::
+	
+	Local Machine 																			Remote Server 
+	
+	Install Git Client (VCS)																	(GitHub)
+	
+	Working Directory			Staging Area				Local Repository				 Remote Repository							
+	
+	 index.html	---------------> index.html ---------------> index.html_v1.0 --------------->	index.html_v1.0
+					git add 					git commit 						git push
+	 index.html	---------------> index.html ---------------> index.html_v1.1 --------------->	index.html_v1.1
+					git add 					git commit 						git push
+	 index.html	---------------> index.html ---------------> index.html_v1.2 --------------->	index.html_v1.2
+					git add 					git commit 						git push
+	 index.html	---------------> index.html ---------------> index.html_v1.3 --------------->	index.html_v1.3
+					git add 					git commit 						git push
+	 index.html	---------------> index.html ---------------> index.html_v1.4 --------------->	index.html_v1.4
+					git add 					git commit 						git push
+					
+					
+					
+	git cli commands :::
+	
+	
+	git clone 			# To copy/clone the entire remote repository to local machine 
+	
+	git add 			# To add the changes from Working Directory to Staging Area 
+
+	git commit 			# To Commit the Changes from Staging Area to Local Repository
+	
+	git push 			# To push the changes from Local Repository to Remote Repository
+	
+	git fetch/git pull	# 
+	
+		- Both git fetch and git pull are used to handle the incremental changes from remote repository
 		
+		- git fetch :
+		
+				git fetch is used to just check for the incremental changes. If there is any incremental changes present in the remote repository, the information about the incremental changes will be updated only in the Local Repository. The Actual File Changes will NOT be updated in the Working Directory. Later the changes can be explicitly merged to Working Directory using Branches. using git merge/git pull 
+
+		- git pull :
+				git pull is used to check for the incremental changes. If there is any incremental changes present in the remote repository, the information about the incremental changes will be updated in the Local Repository as well as in the Working Directory. 
+				
+				git pull = git fetch + git merge 
+				
+				
+	Fork 				# To Copy one Remote Repository to Another Remote Repository
+	
+	git init 			# To initialize a local git repository
+						# Creates .git Directory
+						# Creates a default branch called - main/master
+						
+						
+	Working with Local Git Client ::::
+	
+	1. Install git client in Local Windows Machine ? ::::
+			 64-bit Git for Windows Setup  	# https://git-scm.com/downloads/win
+				- git bash 			# meant for Linux Users 
+				- git CMD 			# meant for Windows Users 
+				- git GUI
+				
+				
+			Windows User - Open Git Bash !
+				git --version 
+	
+		Mac / Linux Users :
+		
+			Open the terminal > git --version 
+			
+			
+	
+		Repository Structure ::::
+			
+		Project Folder/Workspace :
+		
+			- Java_Web_App_Project1				# Root Directory 
+				- SRC 
+				- Test 
+				- prop
+				
+		Open git bash :
+		
+		
+		cd d: 
+		mkdir SA-DevOps-AI 
+		cd SA-DevOps-AI 
+		mkdir repo1
+			
+		cd repo1
+		
+		git init 
+				
