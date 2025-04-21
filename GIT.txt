@@ -257,3 +257,453 @@ Day 8 : 17th Apr. 2025
 		
 		git init 
 				
+		
+######################
+Day 9 : 21st Apr. 2025
+######################		
+
+	Working with Git CLI Commands :
+	
+	git init 
+	
+	git status				# get the current status of git repository
+	
+	
+	
+	Local Machine 																			Remote Server 
+	
+	Install Git Client (VCS)																	(GitHub)
+	
+	Working Directory			Staging Area				Local Repository				 Remote Repository							
+	
+	 file1.txt	---------------> file1.txt ---------------> file1.txt		--------------->	index.html_v1.0
+					git add 					git commit 						git push
+	
+	
+	
+	git init 
+	
+	git status 
+	
+	echo "rec1" >> file1.txt
+	
+	git add file1.txt
+	
+	git commit -m "Created file1.txt"	
+	
+	git log 			# Is used to get the list of commits in current branch
+	
+	
+	Git Config :
+	
+		Local Configuration: 		# within a specific repository
+		
+			git config user.name "Loksai"
+			
+			git config user.email "loksai@hgfjg.com"
+		
+		
+		Global Configuration		# Applicable to all the Repositories.		
+		
+			git config --global user.name "Loksai"			
+			git config --global user.email "loksai@hgfjg.com"
+			
+	For the Very first commit :
+	
+		git init 	
+		git config --global user.name "Loksai"			
+		git config --global user.email "loksai@hgfjg.com"
+		git status	
+		echo "rec1" >> file1.txt	
+		git add file1.txt
+		
+		git commit -m "Created file1.txt"	
+		
+		git log 			# Is used to get the list of commits in current branch
+		
+		
+		
+		ls 					# Linux Command to get the list of files/Dirs
+		
+		git ls-files 		# get the list of files that being tracked by git from staging / local repository
+
+
+
+	GIT Add Command ::::
+	
+		git add <file_name> 
+		
+		git add <file1_name> <file2_name>
+		
+		git add *.java *.html
+		
+		git add .								# Add all untraced changes/files to staging area
+		
+	
+	Un-Stage::::		# Undo the changes from Staging area.
+						# From Staging area, the Changes will be back to working directory.
+					
+					
+		git rm --cached s1.txt	# It will just remove the changes from staging and take the changes back to working directory
+		
+		git rm -f s2.txt		# It will remove the file permanently from staging area as well as from the working directory
+		
+	
+	Git Log ::::
+	
+		git log 					# Is used to get the list of commits in current branch		
+		git log --oneline			# Get the list of commit with short commit id and message		
+		git log --oneline -3 		# To get the last 3 Commits 
+		git log -3 
+		
+		git log --stat -1	
+
+	git show <commit_id> 			# Get the details of the commit at the record level 
+		
+	git diff 						# Get the difference between the new changes and the committed changes
+
+
+	Undo the Committed Changes :::
+	
+	- git reset :::
+	
+		git reset is used to undo the changes from the repository
+		git reset will reset the commit point to the previous commit point 
+		git reset will not create any new commit point for track purpose 
+		git reset is not recommended in the shared repository 
+	
+		Syntax :		
+			- git reset <reset_option> <previous_Commit_ID>
+			
+		Reset Options ::
+		
+			git reset --soft <previous_Commit_ID> :::
+				- git reset will reset the HEAD pointer to the previous commit point.
+				- It will take the changes back to staging area 
+				- The Changes will be available in staging area and working directory					
+		
+			git reset --mixed <previous_Commit_ID> :::			# Default 
+				- git reset will reset the HEAD pointer to the previous commit point.
+				- It will take the changes back to working directory 
+				- The Changes will be available only in working directory			
+			
+			git reset --hard  <previous_Commit_ID> :::
+				- git reset will reset the HEAD pointer to the previous commit point.
+				- It will permanently delete the files from the system 	
+				
+		
+		Commit Points :
+		
+			5				# Latest Commit 
+			4
+			3
+			2
+			1
+	
+					git reset --hard 3 
+					
+					3
+					2
+					1 
+ 501  cd d:
+  502  cd SA-DevOps-AI
+  503  ls
+  504  cd SA-clear
+  505  clear
+  506  pwd
+  507  ls
+  508  cd SA-DevOps-AI-17/
+  509  clear
+  510  ls
+  511  cd sample-repo
+  512  cd sample-repo1/
+  513  cd ..
+  514  cd sample-repo2/
+  515  clear
+  516  cd ..
+  517  cd sample-repo1/
+  518  ls
+  519  ls -a
+  520  cd ..
+  521  ls
+  522  rm -rf sample-repo*
+  523  ls
+  524  mkdir repo1
+  525  clear
+  526  cd repo1/
+  527  clear
+  528  pwd
+  529  git init
+  530  ls -a
+  531  cd .git/
+  532  ls
+  533  cd ..
+  534  clear
+  535  ls
+  536  ls
+  537  git status
+  538  ls
+  539  echo "rec1" >> file1.txt
+  540  ls
+  541  git status
+  542  git add file1.txt
+  543  git status
+  544  git commit -m "Created file1.txt"
+  545  git log
+  546  ls
+  547  echo "rec1" >> file2.txt
+  548  ls
+  549  git status
+  550  git add file2.txt
+  551  git commit -m "Created file2.txt"
+  552  git status
+  553  git log
+  554  cd d:
+  555  cd SA-DevOps-AI-17/
+  556  ls
+  557  mkdir repo2
+  558  clear
+  559  cd repo2/
+  560  clear
+  561  pwd
+  562  git init
+  563  git status
+  564  ls
+  565  clear
+  566  echo "rec1" >> f1.txt
+  567  ls
+  568  git status
+  569  git add f1.txt
+  570  git status
+  571  git commit -m "Created f1.txt"
+  572  git status
+  573  git log
+  574  echo "rec1" >> f2.txt
+  575  git add f2.txt
+  576  git commit -m "Created f2.txt"
+  577  git log
+  578  clear
+  579  git log
+  580  git config --global user.name "Loksai"
+  581  ls
+  582  echo "rec1" >> f3.txt
+  583  git add f3.txt
+  584  git commit -m "Created f3.txt"
+  585  git log
+  586  cd ..
+  587  ls
+  588  cd repo1/
+  589  git log
+  590  echo "rec1" >> file3.txt
+  591  git add file3.txt
+  592  git commit -m "Created file3.txt"
+  593  git log
+  594  clear
+  595  cd ..
+  596  mkdir repo3
+  597  cd repo3/
+  598  clear
+  599  git status
+  600  git init
+  601  git status
+  602  clear
+  603  ls
+  604  git status
+  605  git log
+  606  clear
+  607  echo "rec1" >> s1.txt
+  608  git status
+  609  clear
+  610  git status
+  611  git add s1.txt
+  612  git status
+  613  clear
+  614  ls
+  615  git ls-files
+  616  git status
+  617  git commit -m "Created s1.txt"
+  618  git status
+  619  git log
+  620  git ls-files
+  621  ls
+  622  echo "rec1" >> s2.txt
+  623  ls
+  624  git ls-files
+  625  git status
+  626  git add s2.txt
+  627  ls
+  628  git ls-files
+  629  clear
+  630  git status
+  631  git commit -m "Created s2.txt"
+  632  clear
+  633  ls
+  634  git status
+  635  clear
+  636  ls
+  637  echo "s3.txt"
+  638  ls
+  639  echo "rec1" >> s3.txt
+  640  clear
+  641  git status
+  642  ls
+  643  echo "rec1" >> s4.txt
+  644  echo "rec1" >> s5.txt
+  645  echo "rec1" >> s6.txt
+  646  git status
+  647  echo "rec1" >> a1.java
+  648  echo "rec1" >> a2.java
+  649  echo "rec1" >> a3.java
+  650  echo "rec1" >> a4.java
+  651  echo "rec1" >> q1.doc
+  652  echo "rec1" >> q2.doc
+  653  echo "rec1" >> q3.doc
+  654  echo "rec1" >> l1.html
+  655  echo "rec1" >> l2.html
+  656  echo "rec1" >> l3.html
+  657  git status
+  658  git add a1.java l1.html
+  659  git status
+  660  git add *.java *.html
+  661  git status
+  662  git add .
+  663  git status
+  664  git ls-files
+  665  git commit -m "Created somefiles"
+  666  clear
+  667  echo "rec1" >> k1.txt
+  668  git add .
+  669  git status
+  670  echo "rec1" >> t1.txt
+  671  git add .
+  672  git status
+  673  git rm --cached k1.txt
+  674  git ls-files
+  675  git status
+  676  git add .
+  677  git status
+  678  git rm -f k1.txt
+  679  ls
+  680  git status
+  681  git rm -f t1.txt
+  682  git status
+  683  clear
+  684  git log
+  685  echo "rec1" >> i1.txt
+  686  git add .
+  687  git commit -m "Created i1.txt"
+  688  echo "rec1" >> i2.tx
+  689  git add .
+  690  git commit -m "Created i2.txt"
+  691  echo "rec1" >> i3.txt
+  692  git add .
+  693  git commit -m "Created i3.txt"
+  694  echo "rec1" >> i4.txt
+  695  git add .
+  696  git commit -m "Created i4.txt"
+  697  clear
+  698  ls
+  699  clear
+  700  git status
+  701  clear
+  702  git log
+  703  clear
+  704  git log
+  705  git log --oneline
+  706  git log --oneline -3
+  707  git log --oneline -2
+  708  git log --oneline -1
+  709  git log --oneline
+  710  git log --oneline -5
+  711  git log -2
+  712  clear
+  713  git log --stat -1
+  714  git log -1
+  715  git log --oneline -1
+  716  git show f164927
+  717  clear
+  718  git status
+  719  ls
+  720  clear
+  721  cat a1.java
+  722  echo "rec2" >> a1.java
+  723  cat a1.java
+  724  git status
+  725  git diff
+  726  clear
+  727  ls
+  728  cd ..
+  729  mkdir repo4
+  730  clear
+  731  ls
+  732  cd repo4/
+  733  clear
+  734  git init
+  735  echo "rec1" >> q1.txt
+  736  git add .
+  737  git commit -m "CM1"
+  738  echo "rec1" >> q2.txt
+  739  git add .
+  740  git commit -m "CM2"
+  741  echo "rec1" >> q3.txt
+  742  git add .
+  743  git commit -m "CM3"
+  744  echo "rec1" >> q4.txt
+  745  git add .
+  746  git commit -m "CM4"
+  747  echo "rec1" >> q5.txt
+  748  git add .
+  749  git commit -m "CM5"
+  750  clear
+  751  git log --onelines
+  752  git log --oneline
+  753  ls
+  754  git ls-files
+  755  git status
+  756  git log --oneline
+  757  git reset --soft 4e1b027
+  758  git status
+  759  ls
+  760  git ls-files
+  761  git log --oneline
+  762  git commit -m "CM5.1"
+  763  ls
+  764  git ls-files
+  765  git status
+  766  git log --oneline
+  767  git reset --mixed 4e1b027
+  768  git status
+  769  ls
+  770  git ls-files
+  771  git log --oneline
+  772  git add .
+  773  git commit -m "CM5.2"
+  774  ls
+  775  git ls-files
+  776  git status
+  777  git log --oneline
+  778  git reset --hard 4e1b027
+  779  ls
+  780  git ls-files
+  781  git status
+  782  git log --oneline
+  783  git reset --hard 4b173c6
+  784  git log --oneline
+  785  ls
+  786  git ls-files
+  787  git status
+  788  git reset --hard 782846b
+  789  git status
+  790  git ls-files
+  791  ls
+  792  git log --oneline
+  793  clear
+  794  git log --oneline
+  795  ls
+  796  cd ..
+  797  history
+Next :::
+		
+	- git revert :::
+	
+	
