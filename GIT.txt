@@ -707,3 +707,157 @@ Next :::
 	- git revert :::
 	
 	
+
+#######################
+Day 10 : 22nd Apr. 2025
+#######################		
+	
+	GIT Revert ::
+	
+	
+		- Git Revert is same as git reset --hard option 		
+		- git revert is used to undo a specific commit 		
+		- git revert will create a new commit point for tracking purpose.		
+		- git revert will maintain the commit history		
+		- git revert is recommended in shared repositories
+		
+		Syntax ::
+			git revert <specific_Commit_ID>
+			
+			Eg.: 
+			
+			git revert 018f99a
+			
+			Create a Commit Point using a commit message 
+			
+			
+	
+	GIT IGNORE :::
+	
+		- Used to Ignore the files from tracking
+		- If you don't want git to track any file. using git ignore!
+		
+		.gitignore --> save the file names to be ignored.
+	
+		- As a best practise, .gitignore should be the very initial commit. 
+
+
+		vi .gitignore
+				
+		$ cat .gitignore
+		sample.txt
+		app.war
+		target/
+		s1.doc
+		*.md
+
+		git add .
+
+		git commit -m "Initial Commit"
+		
+		Java_Web_App_Project 
+		
+			SRC 
+				main.java 
+				test.java  
+			app.properties 
+			target 
+				mywebapp.war 
+			DB_Secret
+			DB_USer_Name
+			DB_Password
+			
+	GIT Branch :::
+	
+		GIT Branching Strategies :
+		
+		Create GIT Branches :::
+		
+		Working with git branches enabling parallel development :
+		
+	GIT Branching Techniques ::::
+	
+		In Distributed VCS, Branches are used to perform parallel Development 		
+		
+		Default Branch - master/main - is considered as a production version of source code.
+		
+	GIT Branching Strategies :::
+	
+		- It is used to maintain the integrity of master/main branch 
+		- Git Branch is the logical copy of the default branch
+		
+	
+	Repo1 :
+	
+		master - rel1,rel2,rel3
+		
+					rel1,rel2,rel3,rel4					# rel4 is - feature_branch1 changes upon merge 
+		
+			feature_branch1 - rel1,rel2,rel3,f1cm1,f1cm2,f1cm3
+	
+	Scenario 1 :
+	
+	Repo1 :
+	
+		master - cm1,cm2,cm3	
+		
+					- cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3		==> Upon Merging feature1 & feature2
+		
+		
+			feature1 - cm1,cm2,cm3
+
+						- cm1,cm2,cm3,f1cm1,f1cm2,f1cm3
+			
+			feature2 - cm1,cm2,cm3	
+			
+						- cm1,cm2,cm3,f2cm1,f2cm2,f2cm3
+		
+		
+									  
+		Create Branch 
+
+			git branch 							# Used get the list of branches 
+			
+			git branch <new_branch_name>		# Create New Branch 
+			
+			git switch -c <new_branch_name>		# Create New Branch 
+			
+			git switch <branch_name>			# Switch to any existing branch 
+			
+			git merge 							# Used to Merge the Changes to Target Branch
+												# Should be executed from the target branch 
+												
+												
+												
+			git merge feature1 					# Should be executed from the target branch 
+									
+									
+			How Merge Conflict Occurs ::
+			
+				- When more than one user/feature try to update a same line in the same file on the same target branch, merge Conflict Occurs.
+				
+			How to fix the Merge Conflict ::
+			
+				1. Identify the file(s) causing the Merge Conflict 
+				2. Open and review the file content
+				3. Upon review, decide which record should be retained or deleted from that file
+				4. Open the File in edit mode, and delete the header and footer lines, and update the file with required records and save it.
+				5. perform git add and commit to the target branch 
+		
+		
+Next :
+
+	GIT REBASE :
+	
+	GIT SQUASH :	
+	
+	GIT STASH :
+
+	Handling Remote GIT Repositories :
+	
+	Accessing GITHub Repositories using Visual Studio Code :
+	
+		- Install Visual Studio Code
+		
+		- Github Account Account 
+		
