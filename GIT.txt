@@ -861,3 +861,434 @@ Next :
 		
 		- Github Account Account 
 		
+
+		
+#######################
+Day 11 : 23rd Apr. 2025
+#######################	
+
+	GIT REBASE :
+	
+	- git rebase :::
+	
+		- Rebase is used to maintain linear commit history 
+		- Rebase is used to keep the current branch in-sync with target branch 
+		- Rebase can prevent merge-conflicts in the target branch 
+		- As a best practise, it is always recommended to use rebase before merge
+		
+	
+		Repo1: 
+		
+			master 	- cm1,cm2,cm3
+			
+					- cm1,cm2,cm3,f1cm1,f1cm2,f1cm3			# Upon merging feature1
+					
+					- cm1,cm2,cm3,f2cm1,f2cm2,f2cm3,f1cm1,f1cm2,f1cm3		# Upon merging feature2 without proper rebase.
+					
+					- cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3		# Expected commits - with proper rebase.
+					
+			
+				feature1 - cm1,cm2,cm3
+				
+						 - cm1,cm2,cm3,f1cm1,f1cm2,f1cm3
+						 
+						 git switch master 
+						 
+						 git merge feature1 ==> 
+				
+				feature2 - cm1,cm2,cm3
+							
+						 - cm1,cm2,cm3,f2cm1,f2cm2,f2cm3
+						 
+						 git rebase master 						# Should be executed from the current branch
+						 
+						 
+						 - cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,f2cm1,f2cm2,f2cm3	
+						 
+						 git switch master 
+						 
+						 git merge feature2 ==> 			
+	
+	
+	
+	GIT SQUASH :	
+	
+		- It is used to combine the commits into a single commit point.
+	
+		Repo1: 
+		
+			master 	- cm1,cm2,cm3
+			
+					- cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,.............................................,f1cm150	# Upon merging without --squash option
+					
+
+				feature1 - cm1,cm2,cm3
+				
+						 - cm1,cm2,cm3,f1cm1,f1cm2,f1cm3,.............................................,f1cm150
+						 
+						 git switch master 
+						 
+						 //git merge feature1	==> 
+						 
+						 git merge --squash feature1 
+						 
+						 git commit -m "committed from feature1"
+						 
+
+
+	
+	GIT STASH :
+	
+		- It is used to save the uncommitted changes to the temporary area.
+		
+		
+		git stash save "msg" 		# Create an entry in the stash list 
+		
+		git stash list				# Get the list of item from the stash list 
+		
+		git stash apply				# Apply/Copy the Latest entry from stash list back to staging area 
+		git stash apply stash@{2}	# Apply/Copy a specific entry from stash list back to staging area 
+		
+		git stash pop				# move the Latest entry from stash list back to staging area 
+		git stash pop stash@{2}		# move a specific entry from stash list back to staging area 
+		
+		git stash drop				# Delete the Latest entry from stash list
+		git stash drop stash@{2}	# Delete a specific  entry from stash list
+		
+		git stash clear 			# Clean-up / Delete all the entries from stash list
+		
+		
+  800  mkdir testrepo1
+  801  cd testrepo1/
+  802  git init
+  803  clear
+  804  git status
+  805  echo "rec1" >> q1.txt
+  806  git add .
+  807  git commit -m "CM1"
+  808  echo "rec1" >> q2.txt
+  809  git add .
+  810  git commit -m "CM2"
+  811  echo "rec1" >> q3.txt
+  812  git add .
+  813  git commit -m "CM3"
+  814  echo "rec1" >> q4.txt
+  815  git add .
+  816  git commit -m "CM4"
+  817  clear
+  818  git log --oneline
+  819  clear
+  820  git status
+  821  ls
+  822  git ls-files
+  823  git log --oneline
+  824  git show 018f99a
+  825  git revert 018f99a
+  826  ls
+  827  git ls-files
+  828  git status
+  829  git log
+  830  git log --oneline
+  831  git ls-files
+  832  git revert 279f689
+  833  ls
+  834  git ls-files
+  835  git lg --oneline
+  836  git log --oneline
+  837  ls
+  838  git show 917b6ae
+  839  git revert 917b6ae
+  840  ls
+  841  git log --oneline
+  842  git revert b530a6c
+  843  clear
+  844  cd ..
+  845  mkdir testrepo2
+  846  cd testrepo2/
+  847  git init
+  848  clear
+  849  git status
+  850  vi .gitignore
+  851  git status
+  852  git add .
+  853  git commit -m "Initial Commit - gitignore"
+  854  clear
+  855  ls
+  856  ls -a
+  857  ls
+  858  clear
+  859  cat .gitignore
+  860  echo "rec1" >> q1.txt
+  861  git status
+  862  echo "rec1" >> sample.txt
+  863  ls
+  864  git status
+  865  ls
+  866  cat .gitignore
+  867  echo "rec1" >> s1.md
+  868  git status
+  869  ls
+  870  clear
+  871  cat .gitignore
+  872  clear
+  873  cd ..
+  874  ls
+  875  cd testrepo3
+  876  mkdir testrepo3
+  877  cd testrepo3/
+  878  git init
+  879  clear
+  880  echo "rec1" >> f1.txt
+  881  git add .
+  882  git commit -m "CM1"
+  883  clear
+  884  git branch
+  885  git branch feature1
+  886  git branch
+  887  git branch feature2
+  888  git branch
+  889  git log --oneline
+  890  git switch -c feature3
+  891  git switch master
+  892  clear
+  893  git log --oneline
+  894  git switch feature1
+  895  git log --oneline
+  896  ls
+  897  cd ..
+  898  mkdir testrepo4
+  899  clear
+  900  cd testrepo4
+  901  git init
+  902  git status
+  903  echo "rec1" >> f1.txt
+  904  git add .
+  905  git commit -m "cm1"
+  906  clear
+  907  git branch
+  908  git branch feature1
+  909  git branch feature2
+  910  git branch
+  911  git switch feature1
+  912  ls
+  913  clear
+  914  ls
+  915  git log --oneline
+  916  ls
+  917  cat f1.txt
+  918  echo "rec2 from feature1" >> f1.txt
+  919  cat f1.txt
+  920  git add .
+  921  git commit -m 'f1cm1"
+"
+'
+  922  git log --oneline
+  923  cat f1.txt
+  924  git switch master
+  925  git merge feature1
+  926  cat f1.txt
+  927  git log --oneline
+  928  git switch feature2
+  929  ls
+  930  git log --oneline
+  931  cat f1.txt
+  932  echo "rec2 from feature2" >> f1.txt
+  933  git add .
+  934  git commit -m "f2cm1"
+  935  git switch master
+  936  ls
+  937  cat f1.txt
+  938  git merge feature2
+  939  vi f1.txt
+  940  git add .
+  941  git commit -m "fixed Merge Conflict"
+  942  git log --oneline
+  943  ls
+  944  cat f1.txt
+  945  clear
+  946  cd ..
+  947  clear
+  948  ls
+  949  mkdir samplerepo1
+  950  cd samplerepo1/
+  951  clear
+  952  git init
+  953  clear
+  954  echo "rec1" >> a1.txt
+  955  git add .
+  956  git commit -m "cm1"
+  957  clear
+  958  echo "rec1" >> a2.txt
+  959  git add .
+  960  git commit -m "cm2"
+  961  echo "rec1" >> a3.txt
+  962  git add .
+  963  git commit -m "cm3"
+  964  clear
+  965  git log --oneline
+  966  ls
+  967  git branch feature1
+  968  git branch feature2
+  969  git branch
+  970  clear
+  971  git switch feature1
+  972  git log --oneline
+  973  ls
+  974  clear
+  975  ls
+  976  echo "rec1" >> q1.txt
+  977  git add .
+  978  git commit -m "f1cm1"
+  979  echo "rec1" >> q2.txt
+  980  git add .
+  981  git commit -m "f1cm2"
+  982  echo "rec1" >> q3.txt
+  983  git add .
+  984  git commit -m "f1cm3"
+  985  clear
+  986  git log --oneline
+  987  git rebase master
+  988  git switch master
+  989  git merge feature1
+  990  ls
+  991  git log --oneline
+  992  git switch feature2
+  993  ls
+  994  git log -oneline
+  995  git log --oneline
+  996  echo "rec1" >> w1.txt
+  997  git add .
+  998  git commit -m "f2cm1"
+  999  echo "rec1" >> w2.txt
+ 1000  git add .
+ 1001  git commit -m "f2cm2"
+ 1002  echo "rec1" >> w3.txt
+ 1003  git add .
+ 1004  git commit -m "f2cm3"
+ 1005  echo "rec1" >> w4.txt
+ 1006  git add .
+ 1007  git commit -m "f2cm4"
+ 1008  clear
+ 1009  git log --oneline
+ 1010  ls
+ 1011  git rebase master
+ 1012  git log --oneline
+ 1013  git switch master
+ 1014  git merge feature2
+ 1015  ls
+ 1016  clear
+ 1017  git log --oneline
+ 1018  git switch feature1
+ 1019  ls
+ 1020  git log --oneline
+ 1021  git rebase master
+ 1022  git log --oneline
+ 1023  clear
+ 1024  git log -oneline
+ 1025  git log --oneline
+ 1026  ls
+ 1027  echo "rec1" >> l1.txt
+ 1028  git add .
+ 1029  git commit -m "f1"
+ 1030  echo "rec1" >> l2.txt
+ 1031  git add .
+ 1032  git commit -m "f2"
+ 1033  echo "rec1" >> l3.txt
+ 1034  git add .
+ 1035  git commit -m "f3"
+ 1036  echo "rec1" >> l4.txt
+ 1037  git add .
+ 1038  git commit -m "f4"
+ 1039  echo "rec1" >> l5.txt
+ 1040  git add .
+ 1041  git commit -m "f5"
+ 1042  echo "rec1" >> l6.txt
+ 1043  git add .
+ 1044  git commit -m "f6"
+ 1045  clear
+ 1046  git log --oneline
+ 1047  git switch master
+ 1048  git merge --squash feature1
+ 1049  git status
+ 1050  git commit -m "Combined changes from feature1"
+ 1051  git log --oneline
+ 1052  ls
+ 1053  cd ..
+ 1054  mkdir samplerepo2
+ 1055  cd samplerepo2/
+ 1056  clear
+ 1057  git init
+ 1058  clear
+ 1059  echo "rec1" >> q1.txt
+ 1060  git add .
+ 1061  git commit -m "cm1"
+ 1062  clear
+ 1063  git switch -c feature1
+ 1064  clear
+ 1065  ls
+ 1066  git log --oneline
+ 1067  echo "rec1" >> w1.txt
+ 1068  git add .
+ 1069  git status
+ 1070  git switch master
+ 1071  git status
+ 1072  git switch feature1
+ 1073  ls
+ 1074  git status
+ 1075  git stash save "for w1.txt"
+ 1076  git status
+ 1077  ls
+ 1078  git stash list
+ 1079  echo "rec1" >> w2.txt
+ 1080  git add .
+ 1081  git stash save "for w2.txt"
+ 1082  git stash list
+ 1083  echo "rec1" >> w3.txt
+ 1084  git add .
+ 1085  git stash save "for w3.txt"
+ 1086  echo "rec1" >> w4.txt
+ 1087  git add .
+ 1088  git stash save "for w4.txt"
+ 1089  clear
+ 1090  git stash list
+ 1091  ls
+ 1092  git status
+ 1093  git stash apply
+ 1094  ls
+ 1095  git commit -m "w4"
+ 1096  git status
+ 1097  ls
+ 1098  git stash apply
+ 1099  git commit -m "w3"
+ 1100  git stash list
+ 1101  ls
+ 1102  git stash drop
+ 1103  git stash list
+ 1104  clear
+ 1105  git stash list
+ 1106  git stash apply stash@{1}
+ 1107  ls
+ 1108  git commit -m "w2"
+ 1109  git stash list
+ 1110  git stash drop stash@{1}
+ 1111  git stash list
+ 1112  git stash pop
+ 1113  git stash list
+ 1114  git stash save "w3"
+ 1115  git stash list
+ 1116  git stash pop stash@{1}
+ 1117  git stash list
+ 1118  git commit -m "asdf"
+ 1119  echo "kbk" >> k.txt
+ 1120  git add .
+ 1121  git stash save "j"
+ 1122  git stash list
+ 1123  git status
+ 1124  git stash clear
+ 1125  git stash list
+ 1126  cd ..
+ 1127  ls
+ 1128  history
+		
+		
+		
