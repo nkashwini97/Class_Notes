@@ -1291,4 +1291,177 @@ Day 11 : 23rd Apr. 2025
  1128  history
 		
 		
+
+#######################
+Day 12 : 28th Apr. 2025
+#######################	
+
+	Remote Repositories using GitHub :
+
+	Accessing GITHub Repositories using Visual Studio Code :
+	
+		- Install Visual Studio Code
 		
+		- Github Account Account 	
+		
+	Developers' Workload ???
+	
+	- Enhancement Projects / Bug fixing 			# Existing Project - Source Code is already available in the Remote Repository
+	
+	- New Project 
+	
+
+
+	git clone 			# To copy/clone the entire remote repository to local machine 
+	
+	git add 			# To add the changes from Working Directory to Staging Area 
+
+	git commit 			# To Commit the Changes from Staging Area to Local Repository
+	
+	git push 			# To push the changes from Local Repository to Remote Repository
+	
+	git fetch/git pull	# 
+	
+		- Both git fetch and git pull are used to handle the incremental changes from remote repository
+		
+		- git fetch :
+		
+				git fetch is used to just check for the incremental changes. If there is any incremental changes present in the remote repository, the information about the incremental changes will be updated only in the Local Repository. The Actual File Changes will NOT be updated in the Working Directory. Later the changes can be explicitly merged to Working Directory using Branches. using git merge/git pull 
+
+		- git pull :
+				git pull is used to check for the incremental changes. If there is any incremental changes present in the remote repository, the information about the incremental changes will be updated in the Local Repository as well as in the Working Directory. 
+				
+				git pull = git fetch + git merge 
+				
+				
+	Fork 				# To Copy one Remote Repository to Another Remote Repository
+	
+	git init 			# To initialize a local git repository
+						# Creates .git Directory
+						# Creates a default branch called - main/master
+						
+
+	- How to create a github repositories ?
+	
+	- Working with github repositories
+		
+			- Branches 
+			- Create Commits 
+			- clone,pull,fetch,push 
+			
+	- Pull Request :
+	
+		- Will be Created by the Developers, and submitted to the approver - 
+		
+		
+	- git clone ::
+	
+		git clone <githur_repo_url>
+		
+		git clone https://github.com/SA-DevOps-ai/TestRepo1.git
+		
+		git remote -v 		# Get the list of Remote Repositories linked to the Local Repository
+		
+		
+		create local-feature1 branch 
+		
+		push this to remote repository 
+		
+		
+		github credentials : 
+		
+			- GitHub uses Token Based Authentication to enable new commit from external git-cli commands 
+			
+			- GitHub Access Token :
+			
+				- Create GitHub Access Token. 		
+						- goto --> USer Setting --> Developer Settings --> Personal Access Token --> Generate Token
+				
+		- git push -u origin <branch_name>
+		
+		
+		- git fetch / git pull 
+		
+		
+		git remote -v 
+		
+		git remote add origin https://github.com/SA-DevOps-ai/TestRepo2.git
+		
+		
+		git remote remove origin
+		
+		
+		git branch -M main				# Rename a Branch 
+		
+		
+
+
+	Accessing GITHub Repositories using Visual Studio Code :
+
+
+  506  mkdir remoterepos
+  507  cd remoterepos/
+  508  clear
+  509  pwd
+  510  git clone https://github.com/SA-DevOps-ai/TestRepo1.git
+  511  ls
+  512  cd TestRepo1/
+  513  clear
+  514  ls
+  515  git status
+  516  git remote -v
+  517  git log --oneline
+  518  ls
+  519  clear
+  520  git switch -c local-feature1
+  521  git branch
+  522  ls
+  523  clear
+  524  ls
+  525  echo "rec1" >> local-file1.txt
+  526  git add .
+  527  git commit -m "created local-file1.txt"
+  528  ls
+  529  git log --oneline
+  530  git push -u origin local-feature1
+  531  clear
+  532  git switch main
+  533  git status
+  534  ls
+  535  git fetch
+  536  ls
+  537  git pull
+  538  ls
+  539  clear
+  540  git status
+  541  ls
+  542  git pull
+  543  ls
+  544  cd ..
+  545  mkdir testrepo2
+  546  cd testrepo
+  547  cd testrepo2/
+  548  clear
+  549  ls
+  550  git init
+  551  echo "rec1" >> file1.txt
+  552  git add .
+  553  git commit -m "created file1.txt"
+  554  clear
+  555  git status
+  556  git log --oneline
+  557  git remote -v
+  558  git remote add origin https://github.com/SA-DevOps-ai/TestRepo2.git
+  559  git remote -v
+  560  git remote remove origin
+  561  git remote -v
+  562  git branch -M main
+  563  git branch -M master
+  564  git remote -v
+  565  git push -u origin master
+  566  git remote -v
+  567  git remote add origin https://github.com/SA-DevOps-ai/TestRepo2.git
+  568  git push -u origin master
+  569  cd ..
+  570  history
+
