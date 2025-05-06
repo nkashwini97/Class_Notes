@@ -151,3 +151,87 @@ Day 14 : 30th Apr. 2025
 		https://www.jenkins.io/doc/book/installing/linux/
 	
 		
+
+		
+#######################
+Day 15 : 5th May. 2025												***********
+#######################	
+
+
+	- Manage the Global System Configurations :::
+	
+	
+	
+	- Plugins Management :::
+	
+	
+	
+	
+	- Tools Management
+	- User Management
+	- Security Management
+	- Credential Management 			
+		
+		
+	
+		
+#######################
+Day 16 : 6th May. 2025
+#######################	
+
+	- Manage the Global System Configurations 			# Used to setup default properties and the external servers to Jenkins
+	- Plugins Management								# Extensions to Jenkins 	
+	
+	- Tools Management
+	
+	- User Management									# Add/Remove/Update Jenkins Users - User Authentication 	
+	
+	- Security Management								# Configure User Authorization	
+	
+	- Credential Management 							# Used to maintain the Credentials				
+		
+	
+		
+	
+
+	https://updates.jenkins.io/download/plugins/docker-workflow/603.va_6964865a_9b_9/docker-workflow.hpi
+	
+	
+	
+- Create Jenkins Job/Projects in Jenkins Master :::	
+	
+	- Jenkins Projects/Jobs :
+	
+		- Free-Style Projects 		# Based on Manual Configurations 
+			
+		
+		- Pipeline Projects 		# Based on the Groovy Scripts 
+									# Reusable 
+
+
+- Free-Style Projects 		# Based on Manual Configurations 
+		
+	Variables :
+	
+		- Environment Variables  	# Jenkins reserved Key-words
+		
+			echo "jenkins-${JOB_NAME}-${BUILD_NUMBER}"
+			
+			"${JOB_NAME}"
+
+
+
+		- User Defined Variables.
+		
+		
+				envi = "qa" 
+				
+
+
+Next :
+
+	- Pipeline Projects 		# Based on the Groovy Scripts 
+								# Reusable 
+	- Create Jenkins Master and Slave Node Configurations 
+	- Create Jenkins CICD Pipeline Projects
+	- Onboard the Applications to use Jenkins CICD Pipelines 
