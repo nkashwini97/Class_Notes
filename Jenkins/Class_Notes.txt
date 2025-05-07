@@ -317,4 +317,39 @@ pipeline {
 										HostName : <Private_IP_Address of Build Server>
 										UserName 
 										Credential - SSH Key
-						
+
+
+									
+pipeline {
+
+    agent { label 'slave1' }
+
+    stages {
+        stage('SCM_Checkout') {
+            steps {
+                echo 'Perform SCM Checkout'
+				git 'https://github.com/SA-DevOps-ai/java-webapp-project.git'
+            }
+        }
+        stage('Application Build') {
+            steps {
+                echo 'Perform Application Build'
+				sh 'mvn clean package'
+				
+            }
+        }
+        stage('Deploy to QA_Server') {
+            steps {
+                echo 'Deploy to QA_Server'
+            }
+        }
+    }
+}
+
+
+Next ::
+
+	Setup the Target - Tomcat Server  and Automate the Deployments 
+	
+	
+	
