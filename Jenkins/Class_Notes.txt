@@ -235,3 +235,86 @@ Next :
 	- Create Jenkins Master and Slave Node Configurations 
 	- Create Jenkins CICD Pipeline Projects
 	- Onboard the Applications to use Jenkins CICD Pipelines 
+
+
+
+#######################
+Day 17 : 7th May. 2025
+#######################	
+
+	- Pipeline Projects 		# Based on the Groovy Scripts 
+								# Reusable 
+	- Create Jenkins Master and Slave Node Configurations 
+	- Create Jenkins CICD Pipeline Projects
+	- Onboard the Applications to use Jenkins CICD Pipelines 
+	
+	
+	- Pipeline Projects 		# Based on the Groovy Scripts 
+								# Reusable
+								# To automate CICD - Build and Deployment 
+								# Onboard Application to Jenkins CICD Process
+								
+		- Scripted Pipeline:
+			- Based on Groovy Scripts.
+			
+		- Declarative Pipeline:		
+			- Snippet Generator 
+								
+								
+	- Alternative to Jenkins : bamboo/gitlab-ci/github-actions/azure-pipelines/aws-codebuild/aws-codepipeline
+		- uses Declarative Scripting Languages like *.yaml --> based on key:value pairs
+
+
+	CI/CD Pipeline - Workflow :::
+	
+		SCM_Checkout 
+		Application Build 
+		Unit Testing 
+		Create Artifacts 
+		Promote the Application to Test Environments
+		Notify 
+		Deploy to Prod 
+	
+
+	
+CICD Pipeline - composed on various stages
+
+pipeline {
+    agent any
+
+    stages {
+        stage('SCM_Checkout') {
+            steps {
+                echo 'Perform SCM Checkout'
+            }
+        }
+        stage('Application Build') {
+            steps {
+                echo 'Perform Application Build'
+            }
+        }
+        stage('Deploy to QA_Server') {
+            steps {
+                echo 'Deploy to QA_Server'
+            }
+        }
+    }
+}
+
+
+- Working with Jenkins Master-Slave Architecture :::
+
+
+		Jenkins_Master(VM) ==> To Create Jenkins CI/CD Pipeline Jobs/Projects and schedule to run in Jenkins SlaveNodes
+								--> Install : git, jdk, jenkins
+								
+			Jenkins_SlaveNode1(VM)	==> Perform Java Application Builds 
+										--> Install git, jdk, maven 
+										--> Create User with ssh keys 
+										
+										--> Add this SlaveNode1 to Jenkins Master
+										
+										HostName : <Private_IP_Address of Build Server>
+										UserName 
+										Credential - SSH Key
+						
