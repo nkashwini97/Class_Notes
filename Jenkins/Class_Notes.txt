@@ -470,4 +470,156 @@ Next :
 	Email Notifications 
 	Best Practises in Jenkins 
 	
+
+########################
+Day 19 : 12th May. 2025
+########################
+
+	Email Notifications 
+	
+	Best Practises in Jenkins 
+	
+	Containerization using Docker!
+	
+	Gmail Account ?
+	
+	Enabled with MFA ?
+	
+	
+Jenkins Jobs :
+
+		--> Success
 		
+		--> Failure 
+		
+		--> Unstable 
+		
+	Email Notifications can be sent at the Post-Build Action.
+	
+pipeline {
+
+    agent { label 'slave1' }
+
+    stages {
+        stage('SCM_Checkout') {
+            steps {
+                echo 'Perform SCM Checkout'
+				git 'https://github.com/SA-DevOps-ai/java-webapp-project.git'
+            }
+              post {
+                failure {
+                  sh "echo 'Send mail on failure'"
+					mail bcc: 'loksai@gmail.com', body: "${BUILD_URL} The Job Status", cc: 'loksai@gmail.com', from: '', replyTo: '', subject: 'SCM Checkout Failed', to: 'loksai@gmail.com,loksai@gmail.com,loksai@gmail.com'
+                }
+              }
+        }
+        stage('Application Build') {
+            steps {
+                echo 'Perform Application Build'
+				sh 'mvn clean package'
+				
+            }
+        }
+        stage('Deploy to QA_Server') {
+            steps {
+                script{
+                    sshPublisher(publishers: [sshPublisherDesc(configName: 'Tomcat-Server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: 'target/', sourceFiles: 'target/demo-1.0-SNAPSHOT.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+                }
+            }
+        }
+    }
+}
+
+pipeline {
+    agent { label 'slave1' }
+
+    stages {
+        stage('SCM_Checkout') {
+            steps {
+                echo 'Perform SCM Checkout'
+				git 'https://github.com/SA-DevOps-ai/java-webapp-project.git'
+            }
+              post {
+                failure {
+                  sh "echo 'Send mail on failure'"
+					mail bcc: 'loksai@gmail.com', body: "${BUILD_URL} The Job Status", cc: 'loksai@gmail.com', from: '', replyTo: '', subject: 'SCM Checkout Failed', to: 'loksai@gmail.com,loksai@gmail.com,loksai@gmail.com'
+					
+					mail bcc: 'xyz@gmail.com', body: '"Please go to ${BUILD_URL} and verify the build"', cc: 'xyz@gmail.com', from: '', replyTo: '', subject: 'SCM Checkout Failed', to: 'xyz@gmail.com'
+					
+                }
+              }
+        }
+        stage('Application Build') {
+            steps {
+                echo 'Perform Application Build'
+                sh 'mvn clean package'
+            }
+              post {
+                failure {
+                  sh "echo 'Send mail on failure'"
+					mail bcc: 'loksai@gmail.com', body: "${BUILD_URL} The Job Status", cc: 'loksai@gmail.com', from: '', replyTo: '', subject: 'Application Build Failed', to: 'loksai@gmail.com,loksai@gmail.com,loksai@gmail.com'
+                }
+              }
+        }
+        stage('Deploy to QA_Tomcat_Server') {
+            steps {
+				script {
+				sshPublisher(publishers: [sshPublisherDesc(configName: 'Tomcat-Server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: 'target/', sourceFiles: 'target/mvn-hello-world.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+			}
+            }
+              post {
+                success {
+                  sh "echo 'Send mail on successful deployment"
+					mail bcc: 'loksai@gmail.com', body: "${BUILD_URL} The Job Status", cc: 'loksai@gmail.com', from: '', replyTo: '', subject: 'Deployment is Successful', to: 'loksai@gmail.com,loksai@gmail.com,loksai@gmail.com'
+                }
+                failure {
+                  sh "echo 'Send mail on failure'"
+					mail bcc: 'loksai@gmail.com', body: "${BUILD_URL} The Job Status", cc: 'loksai@gmail.com', from: '', replyTo: '', subject: 'Deployment is Failed', to: 'loksai@gmail.com,loksai@gmail.com,loksai@gmail.com'
+                }
+                unstable {
+                  sh "echo 'Send mail on unstable'"
+					mail bcc: 'loksai@gmail.com', body: "${BUILD_URL} The Job Status", cc: 'loksai@gmail.com', from: '', replyTo: '', subject: 'Deployment is unstable', to: 'loksai@gmail.com,loksai@gmail.com,loksai@gmail.com'
+                }
+              }			
+        }
+    }
+}
+
+
+GMail - App Password/Token
+
+Goto Manage Jenkins :
+
+Global system Configuration --> Email Notification Plugins config.
+
+EMail Notification :::
+
+
+SMTP Server :
+smtp.gmail.com
+
+SMTP Authentication :
+
+ User Name : <Active Email_ID>
+ 
+ Password : <16 bytes of App Password>
+ 
+Use SSL 
+
+SMTP Port : 465
+
+
+Login to Gmail :::
+
+Click Manage Account Settings
+
+@Left side panel - select Security tab
+
+MFA --> mobile#
+
+# Search for App password in the search bar.
+
+App Password = 16 bytes of App Password. 
+
+What ? windows
+Which Appln - email
