@@ -322,13 +322,13 @@ pipeline {
 									
 pipeline {
 
-    agent { label 'slave1' }
+    agent { label 'testslave' }
 
     stages {
         stage('SCM_Checkout') {
             steps {
                 echo 'Perform SCM Checkout'
-				git 'https://github.com/SA-DevOps-ai/java-webapp-project.git'
+				git 'https://github.com/nkashwini97/java-webapp-project.git'
             }
         }
         stage('Application Build') {
@@ -345,6 +345,7 @@ pipeline {
         }
     }
 }
+
 
 
 Next ::
