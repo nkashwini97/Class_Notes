@@ -378,9 +378,21 @@ Day 18 : 08th May. 2025
 								--> Setup the Port 8080
 												
 								--> This  Servers will be connect to Jenkins_Master using Publish over SSH Plugin 
+										Add SSH server
+
+										Name :can be anthing of our reference
+										username: devopsadmin
 										HostName : <Private_IP_Address of Tomcat>
-										UserName 
+										remote directory: /opt/tomcat/webapps
+										advanced
 										Credential - SSH Key
+										SUCCESS on test configeration
+
+						Snippet generator to copy the artifacts i.e war file created by maven build and saved in slave node server
+								-Go to snippet generater, choose publish over SSH by default it will choose the tomcat server added
+								Sourcr file : target/*.war   Remove prefix: target/
+								Remote directory : .
+								generate script:  sshPublisher(publishers: [sshPublisherDesc(configName: 'tomcat2', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: 'target/', sourceFiles: 'target/*.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
 										
 										
 										
@@ -419,7 +431,7 @@ pipeline {
         stage('Deploy to QA_Server') {
             steps {
                 script{
-                    sshPublisher(publishers: [sshPublisherDesc(configName: 'Tomcat-Server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: 'target/', sourceFiles: 'target/demo-1.0-SNAPSHOT.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+                    sshPublisher(publishers: [sshPublisherDesc(configName: 'tomcat2', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: 'target/', sourceFiles: 'target/*.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
                 }
             }
         }
