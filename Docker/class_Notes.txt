@@ -171,4 +171,117 @@ Working Docker CLI Commands :
 	-> docker ps -a 			# List of all the active/stopped Containers in the machine 
 	
 	
+
 	
+########################
+Day 21 : 14th May. 2025
+########################	
+
+
+• Introduction to Virtualization and Containerization
+• What is Containerization
+• Docker Architecture
+• Overview of Docker Hub
+• Docker Installation
+• Docker Commands
+• Container Modes
+• Port Binding
+• Docker file
+• Managing Docker Images
+• Running and Managing Containers
+• Docker Volume
+• Docker Compose
+• Overview of Docker Swarm
+
+	Docker CLI Commands :
+	
+		- Create Containers 
+		- Work with Containers 
+
+	-> docker --version 
+	
+	-> docker images 				# List the docker images in the machine 
+	
+	-> docker ps 					# List the active/running Containers in the machine 
+
+	-> docker ps -a 				# List of all the active/stopped Containers in the machine 	
+	
+	-> docker pull <image_name>		# To download the Container Image from DockerHub
+	
+		Eg.: docker pull alpine
+		
+			 docker pull centos 
+			 
+			 docker pull ubuntu 
+			 
+			 docker pull tomcat
+			 
+	- docker run <image_name>		# Create and execute a Container based on a image name
+	
+	Three Modes of Container Execution :
+	Container Execution Modes ::
+	
+		- Foreground / Attached Mode 		# Default Mode 
+		
+				docker run <image_name> 
+				
+				Eg.: 					
+					docker run alpine sleep 30
+		
+		- Background / Detached Mode 
+			
+				docker run -d <image_name> 
+				Eg.: 				
+					docker run -d alpine sleep 30	
+		
+		- Interactive Mode 
+		
+				docker run -it <image_name> 
+				Eg.: 
+				
+					docker run -it alpine sh 		
+
+					docker run -it ubuntu sh 	
+
+	- docker start <Container_ID>		# Start a container
+	
+		Eg.: 
+		
+			docker start ab85d99cbd20
+			
+	- docker exec -it <Container_ID> bash		# Login to a running container
+	
+		Eg.: 
+			docker exec -it ab85d99cbd20 bash
+			
+			exit								# Logoff from Container
+			
+			
+	- docker stop <Container_ID> 
+	
+		Eg.: 
+			docker stop ab85d99cbd20
+
+
+	- Port Mapping :
+
+	Port Mapping / Port Binding ::::
+	
+		- It is used to expose the container to access thru internet 
+		
+		- It is a process of mapping the container port with the host port.
+	
+	Run Application inside the Container!
+	
+		docker run -it tomcat:8.0 bash
+		
+		docker run -it -p <host_Port>:<container_Port> tomcat:8.0
+		
+		Eg:
+		
+		docker run -it -p 8089:8080 tomcat:8.0
+	
+		-p <host_Port>:<container_Port>
+		
+		
+				http://15.207.117.184:8089/	
