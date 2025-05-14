@@ -114,6 +114,14 @@ cat id_ecdsa.pub > authorized_keys
 
 chmod 600 /home/devopsadmin/.ssh/*
 
+Slavenode file orientation
+"
+
+devopsadmin@ip-172-31-86-85:~/workspace/Testing_pipeline/target$ ls
+classes            demo-1.0-SNAPSHOT.war           generated-sources       maven-archiver  surefire-reports
+demo-1.0-SNAPSHOT  demo-1.0-SNAPSHOT.war.original  generated-test-sources  maven-status    test-classes
+"
+
 
 Login to Jenkins - Manage Jenkins - Attach the Slave Node to jenkins Master
 
