@@ -507,56 +507,23 @@ Jenkins Jobs :
 		--> Unstable 
 		
 	Email Notifications can be sent at the Post-Build Action.
+
+
+succesful run with email notification with testslave node,tomcat2,slavenode2 in jenkins2
 	
 pipeline {
-
-    agent { label 'slave1' }
-
-    stages {
-        stage('SCM_Checkout') {
-            steps {
-                echo 'Perform SCM Checkout'
-				git 'https://github.com/SA-DevOps-ai/java-webapp-project.git'
-            }
-              post {
-                failure {
-                  sh "echo 'Send mail on failure'"
-					mail bcc: 'loksai@gmail.com', body: "${BUILD_URL} The Job Status", cc: 'loksai@gmail.com', from: '', replyTo: '', subject: 'SCM Checkout Failed', to: 'loksai@gmail.com,loksai@gmail.com,loksai@gmail.com'
-                }
-              }
-        }
-        stage('Application Build') {
-            steps {
-                echo 'Perform Application Build'
-				sh 'mvn clean package'
-				
-            }
-        }
-        stage('Deploy to QA_Server') {
-            steps {
-                script{
-                    sshPublisher(publishers: [sshPublisherDesc(configName: 'Tomcat-Server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: 'target/', sourceFiles: 'target/demo-1.0-SNAPSHOT.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
-                }
-            }
-        }
-    }
-}
-
-pipeline {
-    agent { label 'slave1' }
+    agent { label 'testslave' }
 
     stages {
         stage('SCM_Checkout') {
             steps {
                 echo 'Perform SCM Checkout'
-				git 'https://github.com/SA-DevOps-ai/java-webapp-project.git'
+				git 'https://github.com/nkashwini97/java-webapp-project.git'
             }
               post {
                 failure {
                   sh "echo 'Send mail on failure'"
-					mail bcc: 'loksai@gmail.com', body: "${BUILD_URL} The Job Status", cc: 'loksai@gmail.com', from: '', replyTo: '', subject: 'SCM Checkout Failed', to: 'loksai@gmail.com,loksai@gmail.com,loksai@gmail.com'
-					
-					mail bcc: 'xyz@gmail.com', body: '"Please go to ${BUILD_URL} and verify the build"', cc: 'xyz@gmail.com', from: '', replyTo: '', subject: 'SCM Checkout Failed', to: 'xyz@gmail.com'
+					mail bcc: 'nkashwini97@gmail.com', body: ' "Please go to ${BUILD_URL} and verify the build"', cc: 'nkashwini97@gmail.com', from: '', replyTo: '', subject: 'SCM Checkout Failed', to: 'nkashwini97@gmail.com'
 					
                 }
               }
@@ -569,34 +536,33 @@ pipeline {
               post {
                 failure {
                   sh "echo 'Send mail on failure'"
-					mail bcc: 'loksai@gmail.com', body: "${BUILD_URL} The Job Status", cc: 'loksai@gmail.com', from: '', replyTo: '', subject: 'Application Build Failed', to: 'loksai@gmail.com,loksai@gmail.com,loksai@gmail.com'
+					mail bcc: 'nkashwini97@gmail.com', body: ' "Please go to ${BUILD_URL} and verify the build"', cc: 'nkashwini97@gmail.com', from: '', replyTo: '', subject: 'SCM Checkout Failed', to: 'nkashwini97@gmail.com'
                 }
               }
         }
         stage('Deploy to QA_Tomcat_Server') {
             steps {
 				script {
-				sshPublisher(publishers: [sshPublisherDesc(configName: 'Tomcat-Server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: 'target/', sourceFiles: 'target/mvn-hello-world.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
-			}
+				sshPublisher(publishers: [sshPublisherDesc(configName: 'tomcat2', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: 'target/', sourceFiles: 'target/*.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+            }
             }
               post {
                 success {
-                  sh "echo 'Send mail on successful deployment"
-					mail bcc: 'loksai@gmail.com', body: "${BUILD_URL} The Job Status", cc: 'loksai@gmail.com', from: '', replyTo: '', subject: 'Deployment is Successful', to: 'loksai@gmail.com,loksai@gmail.com,loksai@gmail.com'
+                  sh "echo 'Send mail on successful deployment'"
+					mail bcc: 'nkashwini97@gmail.com', body: ' "Please go to ${BUILD_URL} and verify the build"', cc: 'nkashwini97@gmail.com', from: '', replyTo: '', subject: 'Successful deployment', to: 'nkashwini97@gmail.com'
                 }
                 failure {
                   sh "echo 'Send mail on failure'"
-					mail bcc: 'loksai@gmail.com', body: "${BUILD_URL} The Job Status", cc: 'loksai@gmail.com', from: '', replyTo: '', subject: 'Deployment is Failed', to: 'loksai@gmail.com,loksai@gmail.com,loksai@gmail.com'
+					mail bcc: 'nkashwini97@gmail.com', body: ' "Please go to ${BUILD_URL} and verify the build"', cc: 'nkashwini97@gmail.com', from: '', replyTo: '', subject: 'Deployment is Failed', to: 'nkashwini97@gmail.com'
                 }
                 unstable {
                   sh "echo 'Send mail on unstable'"
-					mail bcc: 'loksai@gmail.com', body: "${BUILD_URL} The Job Status", cc: 'loksai@gmail.com', from: '', replyTo: '', subject: 'Deployment is unstable', to: 'loksai@gmail.com,loksai@gmail.com,loksai@gmail.com'
+					mail bcc: 'nkashwini97@gmail.com', body: ' "Please go to ${BUILD_URL} and verify the build"', cc: 'nkashwini97@gmail.com', from: '', replyTo: '', subject: 'Deployment is Unstable', to: 'nkashwini97@gmail.com'
                 }
               }			
         }
     }
 }
-
 
 GMail - App Password/Token
 
