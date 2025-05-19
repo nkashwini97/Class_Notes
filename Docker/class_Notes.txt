@@ -285,3 +285,100 @@ Day 21 : 14th May. 2025
 		
 		
 				http://15.207.117.184:8089/	
+
+
+########################
+Day 22 : 19th May. 2025
+########################
+
+	• Docker file
+	• Managing Docker Images
+	• Running and Managing Containers
+	• Docker Volume
+	• Docker Compose
+	• Overview of Docker Swarm	
+	
+	
+	Create Docker Images :
+	
+	
+		docker commit ::
+		
+			- To Create a New Container Image based on the properties of existing Container.
+			
+			Syntax :
+
+				docker commit <existing_container_id> <dockerhub_repo_name>/New_Image_Name>:<tag_Name>
+
+			Eg.: 
+				docker commit 6070980df5f2 loksaieta/sa-ai-buildimg:v1.0
+		
+
+		Publish/Push the Application Images to Container Registry. 
+			
+			Login to DockerHub using Docker CLI.
+			
+				- DockerHub LoginID 
+				- DockerHub Access Token 
+					- Create Access Token in DockerHub 
+					
+			docker login -u loksaieta
+						
+			Password: sdfsadfsaasdfasdfdfs
+			
+					
+			docker push loksaieta/sa-ai-buildimg:v1.0
+
+	
+
+		docker build ::
+		
+			- To create a new Container Image based on the Dockerfile reference.
+			- Dockerfile composed of Instructions to Create Docker Container Images
+			- Application Developers create the Dockerfile and update in the Source Code Repository. 
+
+
+		vi Dockerfile 
+		
+		FROM ubuntu 
+		RUN apt update -y 
+		RUN apt install git -y 
+		RUN apt install maven -y 
+		
+			Syntax :
+			
+			docker build -t <dockerhub_repo_name>/New_Image_Name>:<tag_Name> .		# '.' refers to the Dockerfile path
+			
+			Eg.:
+			
+			docker build -t loksaieta/sa-ai-javabuildimg .		# '.' refers to the Dockerfile path
+			
+		Write Dockerfile :::
+		
+			Docker File Instructions :::
+			
+			FROM 									# To Identify the Base Image
+			RUN 									# To run the package manager
+			COPY 									# To Copy the file from host volume to container volume
+			CP 										# To Copy the file within the container volumes 
+			ADD 									# To Copy the file from Host Volume as well as from URL
+			ENV 									# To define the Environment Variable 
+			ARG 									# To pass Arguements to the Steps in Dockerfile 
+			EXPOSE									# To Define the Container Port 
+			WORKDIR									# To set the current working directory within the Container 
+			CMD										# To set the default start-up command to the container 
+													  This Command can be changed at run-time.
+			ENTRYPOINT								# To set the default start-up command to the container 
+													  This Command cannot be changed at run-time.			
+			
+			
+			
+			vi Dockerfile :::
+			
+			FROM tomcat:8.0
+			COPY ./target/*.war /usr/local/tomcat/webapps
+			EXPOSE 8080	
+			
+			usermod -aG docker devopsadmin
+			
+			docker build -t mywebappimg:v1.0 .
