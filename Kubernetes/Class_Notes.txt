@@ -193,3 +193,31 @@ Day 24 : 21st May. 2025
 Next :
 
 - Installation and Configuration of Kubernetes :::
+
+
+
+########################
+Day 24 : 22nd May. 2025
+########################
+
+- Installation and Configuration of Kubernetes :::
+
+
+
+
+		Kubernetes Architecture:::
+		
+			Kubernetes_Master					# Used to Create and Schedule the Deployments to Kubernetes_WorkNodes
+			
+				Kubernetes_WorkNode1			# Target Servers 
+				Kubernetes_WorkNode2
+
+
+
+- Working with Kubernetes Pods	
+
+	- kubectl 
+	
+	- Pods 
+	
+	- Manifest File -- *.yaml
