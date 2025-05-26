@@ -221,3 +221,81 @@ Day 24 : 22nd May. 2025
 	- Pods 
 	
 	- Manifest File -- *.yaml
+
+
+
+########################
+Day 25 : 26th May. 2025
+########################
+
+- Working with Kubernetes Pods	
+
+	- Pods 
+	
+	- Kubernetes Controller Objects 
+		- Replicasets
+		- Deployment Controller Object 
+	
+	- Kubernetes Services 
+		- NodePort
+		- ClusterIP
+		- Load Balancer
+	
+	- Kubernetes Volumes - HostPath
+
+	- Namespaces
+	
+	
+	Kubernetes Service :
+	
+		- NodePort Service : It is used to expose the pods to internet 
+		
+		- 30000 - 32767 : Port numbers will be assigned.
+		
+		13.203.219.229:31814
+		
+		
+	- Kubernetes Controller Objects  :::
+	
+		- Replicasets
+		- Deployment Controller Object 
+	
+	Controller Object :::
+		ReplicaSet 
+		Deployment 
+
+
+	ReplicaSet :::
+	
+		--> Replicaset is used to execute the specific no. of pods in the cluster.
+		--> Replicaset uses the Set Based Operator
+		--> Used to replicate the pods and able to scale up/down
+		--> The Replicasets will be automatically created, while creating Deployment Controller Object.
+	
+	Deployment Controller Object :::
+	
+		--> It is used to deploy the pods and ensure high availability of pods by creating pod replicas 
+		--> 1. Create Muliple instance/replicas/copies of pods 
+			2. Used to Scale-Up / Scale-Down the Pods 
+			3. Used to Upgrade the application pods 
+			4. Used to Down-grade/roll-back the application pods
+		--> The upgrade/down-grade of application pods can be done without any downtime. 
+		--> To achieve zero-downtime during upgrade/down-grade, By Default, it used Rolling-Update Deployment Strategy.
+
+
+	- pod_1.0	- v1.0(Current Version) 		Upgrade to v2.0
+	- pod_1.0	- v1.0	
+	- pod_1.0	- v1.0
+
+	- pod_1.0	- v1.0(Current Version) 	==> v2.0		==> pod_2.0
+	- pod_1.0	- v1.0(Current Version) 	==> v2.0		==> pod_2.0
+	- pod_1.0	- v1.0(Current Version) 	==> v2.0		==> pod_2.0
+	
+	
+	
+		- Deployment
+		- Replicaset 
+		- Pods 
+
+	Developer created --> webappimg:v1.0 ==> Publish to container Registry	==> Deployed to kubernetes
+	Developer created --> webappimg:v2.0 ==> Publish to container Registry	==> Deployed to kubernetes
