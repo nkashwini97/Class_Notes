@@ -299,3 +299,118 @@ Day 25 : 26th May. 2025
 
 	Developer created --> webappimg:v1.0 ==> Publish to container Registry	==> Deployed to kubernetes
 	Developer created --> webappimg:v2.0 ==> Publish to container Registry	==> Deployed to kubernetes
+
+
+	
+########################
+Day 26 : 27th May. 2025
+########################
+
+	- Kubernetes Services 
+		- NodePort
+		- ClusterIP
+		- Load Balancer
+	
+	- Kubernetes Volumes - HostPath
+
+	- Namespaces
+	
+	- CICD Pipeline --> Jenkins/Maven/Git/Docker/Kubernetes - Tomorrow:
+	
+	
+	Kubernetes Services :::
+	
+		Services are used to enable the communication to the pods :::
+		
+		
+		- Cluster-IP Service:
+			- It is used to enable the communication between the pods within the cluster 
+		
+		- Node-Port Service 
+			- It is used to expose the pods to internet
+			- Uses the port range : 30000 to 32767 
+		
+		- Load Balancer Service
+		
+			- Is an exteral service from service provider - aws LB, 
+
+			- Is used to reduce the number of IPs address to be maintained for NodePort Service.
+			
+			- Load Balancer Service Created on top of the NodePort Service, will receives the request from end user thru internet and Route the request the corresponding nodeport service and access the pod within that.		
+		
+		
+		3-tier application :
+		
+			- Front-End			==> Pod1 
+			
+			- Application-Layer ==> Pod2 
+			
+			- Data-Base Layer   ==> Pod3
+
+
+		- Node-Port Service 
+			- It is used to expose the pods to internet
+			- Uses the port range : 30000 to 32767 
+			
+
+
+
+	- Kubernetes Volumes :::
+	
+		Persistant Volumes ::
+		
+			--> Is used to maintain the persistant data.
+			
+		Hostpath Volume :::
+		
+			- Same as Docker Volume.
+			
+			- Difference is hostpath volume is created at the pod level not at the container level.
+			
+			- Used to pass the input files to pods and restore the output from pods.
+			
+			
+	
+	- Kubernetes Namespace :::
+	
+		- Is the Logical Partition of Kubernetes Cluster		
+		
+		Environments:
+		
+			Dev 
+			
+			QA 
+			
+			UAT 
+			
+			
+			
+			Prod 
+			
+		kubectl create namespace dev 			# Create Namespace
+
+
+Next ::
+
+Integrate Docker & Kubernetes with Jenkins:
+
+End-to-End CICD Pipeline 		: Project
+
+Environment Readiness :::
+
+Jenkins Pipeline :::
+
+Stages :
+
+scm_checkout
+application_build 
+Deploy to target server
+
+
+Next Level : Stages using docker & kubernetes :
+
+scm_checkout
+application_build 
+application_Image Build using docker file
+Publish to container registry
+Deploy to Kubernetes 
