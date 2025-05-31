@@ -195,3 +195,61 @@ chown -R devopsadmin /opt/tomcat
 		Publish Over SSH Plugin is used to copt the artifacts from Jenkins Slave Node to Tomcat Server
 		
 		Install Publish Over SSH Plugin in Jenkins Master.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#Pipeline
+
+pipeline {
+
+    agent { label 'Slave' }
+
+	environment {	
+		DOCKERHUB_CREDENTIALS=credentials('dockerid')
+	}
+	
+    stages {
+        stage('SCM_Checkout') {
+            steps {
+                echo 'Perform SCM Checkout'
+				git 'https://github.com/nkashwini97/java-webapp-project.git'
+            }
+        }
+        stage('Application Build') {
+            steps {
+                echo 'Perform Application Build'
+				sh 'mvn clean package'
+				
+            }
+        }
+        stage('Docker Build') {
+            steps {
+                echo 'Perform Docker Build'
+				sh "docker build -t 95ashwini/ashu-webapp:${BUILD_NUMBER} ."
+				sh "docker tag 95ashwini/ashu-webapp:${BUILD_NUMBER} 95ashwini/ashu-webapp:latest"
+				sh 'docker image list'
+            }
+        }
+        stage('Login to Dockerhub') {
+            steps {
+                echo 'Login to DockerHub'				
+				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+                
+            }
+        }
+        stage('Publish the Image to Dockerhub') {
+            steps {
+                echo 'Publish to DockerHub'
+				sh "docker push 95ashwini/ashu-webapp:latest"                
+            }
+        }
+        stage('Deploy to Kubernetes Cluster') {
+            steps {
+				script {
+				sshPublisher(publishers: [sshPublisherDesc(configName: 'Kubernete', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'kubectl apply -f kdeploy.yaml', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '*.yaml')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+			}				          
+            }
+        }
+    }
+}
+
+
