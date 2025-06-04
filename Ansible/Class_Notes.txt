@@ -152,3 +152,33 @@ samplenode1 ansible_ssh_host=172.31.5.227 ansible_ssh_user=ansibleadmin
 samplenode2 ansible_ssh_host=172.31.14.183 ansible_ssh_user=ansibleadmin
 
 
+
+########################
+Day 30 : 4th June 2025
+########################
+
+	Ansible Playbooks :
+	
+	Playbooks :::::
+
+		- *.yaml Script
+		- Defines the Tasks/Modules to be executed in target nodes.
+		- Reusability
+		
+	When Conditions :
+	
+	
+	Handlers :::
+	
+		Build Server 				/		App Server 
+		
+			- install git 						- install jdk 
+			- install jdk 						- install tomcat 
+			- install maven						- start tomcat 
+	
+	
+	
+	Ansible Galaxy :::
+	
+	
+		https://galaxy.ansible.com/ui/
