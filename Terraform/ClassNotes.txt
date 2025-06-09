@@ -110,3 +110,116 @@ Day 31 : 5th June 2025
 			
 			- terraform --version
 			
+########################
+Day 32 : 9th June 2025
+########################
+
+	Continue with Terraform :
+	
+	
+		- Install Visual Studio Code 	- IDE used to create Terraform Projects 
+			
+				https://code.visualstudio.com/download
+				
+		- Goto Extension - 		Install HashiCorp Terraform extension for VSCode
+				
+		
+		- Open Visual Studio Code - Create Terraform Project 
+		
+		- Goto Terminal Menu
+		
+			- Select new terminal
+			
+			- terraform --version
+			
+			
+		- Identify the Scope 	--> AWS/GCP/Azure/ ?
+		
+		- Write Terraform Script based of Scope of Resources 		
+		
+				- Terraform Scripts are written using HCL --> Hashi-Corp Declarative Language
+		
+		- Perform Terraform Init 		==>  Initialize Terraform Provider
+		
+		- Perform Terraform Plan 		==>  Preview the script
+		
+		- Perform Terraform Apply		==>  Actually create the real Infra-Structure
+		
+		Create AWS Access_Key & Secret Key :::
+		
+			- Used to enable the user Authentication.
+
+			
+			
+		Create/Add 			+
+		
+		Modify/Change		~
+
+		Destroy/Delete 		-
+		
+		
+		terraform init
+
+		terraform plan
+
+		terraform apply
+
+		terraform destroy
+
+		terraform state list
+
+		terraform validate 
+
+		terraform apply -auto-approve
+
+		terraform destroy -auto-approve
+		
+		
+cicd pipeline :
+
+
+scm_checkout
+
+application_build 
+
+deploy to qa  
+
+
+Scenario 1 :
+
+	Pipeline1:
+	
+		SCM_Checkout --> Create New_Test_Server(Terraform) --> Configure New_Test_Server(Ansible)
+
+	Pipeline2:
+	
+		SCM_Checkout --> Application_Build --> Deploy to New_Test_Server
+		
+
+Scenario 2 :
+
+	Pipeline:
+	
+		SCM_Checkout --> Application_Build --> Create New_Test_Server(Terraform) --> Configure New_Test_Server(Ansible) --> Deploy to New_Test_Server
+		
+																																	|
+																																	|
+																																	|
+																																	|
+																																	
+																															Automated Testing 
+		
+																																	|
+																																	|
+																																	|
+																																	|
+																																	
+																															   Notify Users
+																																	|
+																																	|
+																																	|
+																																	|
+																																	
+																														Destroy New_Test_Server
+																														
+																														
