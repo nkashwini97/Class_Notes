@@ -1,0 +1,46 @@
+																														
+########################
+Day 32 : 9th June 2025
+########################
+																									
+		- Continuous Monitoring ::
+			
+			- To ensure High Availabililty of Applications and services.
+			
+		
+			- Infra-Structure Monitoring ::: 
+				
+				- Monitoring the Infra-Structure - Servers/Associated Resources.
+				
+					- CPU / Memory Utilization - 
+					
+					- Threshold limit --> 75% of CPU --> Set Alarm(Notify users)
+					
+					- Monitoring Tools :
+					
+						- Prometheus/Grafana/Dynatrace/Nagios/Splunk
+						
+						
+			- Application Monitoring :::
+			
+				- Appdynamics/datadog
+				
+			
+			Prometheus/Grafana/
+			
+			Prometheus :: Infra-Structure Monitoring Tool
+			
+			Grafana :: Visualization Tool
+			
+			
+			Architecture of Prometheus Monitoring Tools
+			
+			Integrate Grafana and Prometheus
+			
+			Components of Prometheus Architecture
+				- Time-Series Database ;
+					- PromQL
+			
+			Installation & Configuration of Prometheus/Grafana
+			
+			
