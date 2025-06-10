@@ -43,4 +43,29 @@ Day 32 : 9th June 2025
 			
 			Installation & Configuration of Prometheus/Grafana
 			
+New_Test_Server
+																														
+																														
+########################
+Day 33 : 10th June 2025
+########################
+
+	Working with Prometheus & Grafana
+			
+	Monitoring Servers: 
+	
+	Setup the monitoring Server :
+	
+	1. Launch a VM 
+	
+	2. Install Prometheus 		--> Monitoring Server 
+	
+	3. Install Grafana 			--> Manage Monitoring Dashboard 
+			
+			Latest version of Fedora distribution ==> dnf package manager 
+			
+			Previous version of Fedora distribution ==> yum package manager v22.
+			
+			
+			
 			
