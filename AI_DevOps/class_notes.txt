@@ -1,0 +1,102 @@
+			
+			
+########################
+Day 35 : 16th June 2025
+########################			
+			
+
+Introduction to AI and ML
+• Role of AI in cloud services and DevOps
+• AI-driven automation benefits in cloud and DevOps workflows
+• AI Tools overview - Generative AI
+• AI Tools overview - Predictive Analysis
+• AI Tools overview - Code Quality and Troubleshooting
+• AI for Continuous Monitoring and anomaly detection
+• Review insights on potential optimizations and security vulnerabilities
+• Fundamentals of K8sGPT to monitoring, troubleshooting, and optimizing Kubernetes
+workloads		
+			
+			
+What is AI ?
+
+Implement AI for DevOps :::
+
+DevOps Stages :
+
+	Continuous Development :
+	
+	- code generation
+	
+	- script generation 
+	
+	- Highlight the syntax error 
+	
+	- Autofill the syntax
+	
+	- Perform code optimization 
+	
+	- Code Quality Analysis
+	
+	- Coding Standards	
+	
+	AI Tools:
+	
+	- copilot 
+	
+	- gemini
+
+	
+	Testing :::
+	
+		AI based automated testing 
+		
+		Unit Testing 
+		
+			- Test Data 
+			
+			- Test Cases 
+			
+			- Reusability of Test Data and Scenarios
+			
+			- Capture the Test Coverage 
+			
+			- Code Coverage 	
+		
+		Test.ai 
+		
+		Produce the Test Reports 
+		
+		Logs 
+		
+		Generate the Test Report 
+		
+		Root Cause Analysis of the the Issues.
+		
+		Capturing the potential issues / Vul. -> hardcoded user name & password in the program
+		
+		Prepare a chatbot - Teams 
+		
+	Deployments :
+	
+	- Predictive Analysis :
+	
+	Continuous Monitoring :::
+	
+		- Generate monitoring Reports/Dashboards :
+		- Generate Monitoring Logs
+		
+	Tools :
+	
+		- Dynatrace Davis
+		- Amazon Code Guru
+		- DataDog - AI & ML based Monitoring Solutions
+		
+		
+	https://openai.com/
+	
+	https://github.com/k8sgpt-ai/k8sgpt
+		
+		
+		
+	
+	
