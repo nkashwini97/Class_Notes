@@ -98,5 +98,80 @@ DevOps Stages :
 		
 		
 		
+		
+########################
+Day 36 : 17th June 2025
+########################
+
+	https://openai.com/
 	
+	- Monitoring
+	
+	- Troubleshooting 
+	
+	- K8sgpt 
+	
+
+
+	Kubernetes Deployments : Troubleshooting 
+	
+	Scenario 1: 
+	
+		Pods are up and running!
+		
+			Issue: Appln - is not getting the desired output!
+			
+			- port mapping
+			
+	Scenario 2: 
+	
+		Pods are up and running!
+		
+			Issue: Appln Service is unreachable!
+			
+			AI => Data Source!
+			
+			Generative AI :
+			
+			Prompt Engineering! ***
+			
+			AI Agents!
+			
+		Kubernetes :
+		
+			kubectl describe ?
+			
+				- Used to Diagonize the Issues
+				- get the various events 
+				
+			AI Tool to Troubleshoot Kubernetes Objects.
+		
+			- K8sgpt
+			
+			Helm Charts :
+			
+				--> Is a package manager for Kubernetes Cluster.
+				
+				apt ==> used to install/Uninstall/Upgrade the linux package in a Ubuntu Machine.
+				
+				Kubernetes_Master
+					KWN1,2,3,4,5,6,7,8,9,10,.......,175---200
+					
+					-> Prometheus/Grafana ==> 
+					
+					- Use the Prometheus/Grafana Images and execute as pods in kubernetes cluster.			
+			
+					-> Kubernetes Dashboard to Monitoring the Pods and other Kubernetes Objects.
+					
+			1. Install Helm on Kubernetes_Master Node 
+			
+			2. Use Helm to install Prometheus/Grafana 
+			
+			3. Execute Prometheus/Grafana as Pods
+	
+	
+	
+	- K8sgpt ::::
+
+	Demo.
 	
