@@ -286,3 +286,10 @@ pipeline {
     }
 }			
 					
+Interview Preparation:
+
+1. Gothru the class_notes/Class Recordings of all the modules.
+2. Document each and every task of your project.
+3. Prepare & Upload your resume 
+4. Prepare for Interview -> Gothro FAQs of all the modules from internet 
+5. Search for realtime scenarios based on Modules
